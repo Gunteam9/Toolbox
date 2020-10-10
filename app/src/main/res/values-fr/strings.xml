@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="flashlight">Lampe Torche</string>
+    <string name="app_name">La boite à outils</string>
+    <string name="calculator" >Calculatrice</string>
+    <string name="notepad" >Bloc note</string>
+</resources>
