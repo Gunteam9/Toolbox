@@ -4,4 +4,11 @@
     <string name="app_name">La boite à outils</string>
     <string name="calculator" >Calculatrice</string>
     <string name="notepad" >Bloc note</string>
+    <string name="flashlight_on" >Allumer la lampe torche</string>
+    <string name="blinkingSpeed">Vitesse de clignotement</string>
+    <string name="back">Retour</string>
+    <string name="permission_granted">Permission accordée</string>
+    <string name="permission_denied">Permission refusée</string>
+    <string name="flashlight_permission_denied">Vous n\'avez pas permis à l\'application d\'utiliser la lampe torche</string>
+    <string name="flashlight_not_detected">La lampe torche de votre téléphone n\'a pas été détectée</string>
 </resources>

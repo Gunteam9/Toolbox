@@ -3,4 +3,11 @@
     <string name="flashlight">Flashlight</string>
     <string name="calculator">Calculator</string>
     <string name="notepad">Notepad</string>
+    <string name="flashlight_on" >Flashlight On</string>
+    <string name="blinkingSpeed">Blinking speed</string>
+    <string name="back">Back</string>
+    <string name="permission_granted">Permission granted</string>
+    <string name="permission_denied">Permission denied</string>
+    <string name="flashlight_not_detected">Flashlight not detected</string>
+    <string name="flashlight_permission_denied">Flashlight\'s permission denied</string>
 </resources>
