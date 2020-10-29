@@ -12,82 +12,229 @@ import java.util.Queue;
 
 public class CalculatriceActivity extends AppCompatActivity {
 
-
     TextView affichage;
-    double number;
-    double res;
+    StringBuilder number = new StringBuilder();
+    boolean hasDot = false;
+    double value1, value2, res;
     char ope;
-    Button btn;
-
-    Queue<Integer> listDigit = new LinkedList<Integer>();
+    Button equal, clear, del, sum, sub, multi, div, zero, one, two, three, four, five, six, seven, eight, nine, dot;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculatrice);
+
+        equal = (Button) findViewById(R.id.res_button);
+        clear = (Button) findViewById(R.id.clear_button);
+        sum = (Button) findViewById(R.id.sum_button);
+        sub = (Button) findViewById(R.id.sub_button);
+        multi = (Button) findViewById(R.id.mult_button);
+        div = (Button) findViewById(R.id.div_button);
+        zero = (Button) findViewById(R.id.zero_button);
+        one = (Button) findViewById(R.id.one_button);
+        two = (Button) findViewById(R.id.two_button);
+        three = (Button) findViewById(R.id.three_button);
+        four = (Button) findViewById(R.id.four_button);
+        five = (Button) findViewById(R.id.five_button);
+        six = (Button) findViewById(R.id.six_button);
+        seven = (Button) findViewById(R.id.seven_button);
+        eight = (Button) findViewById(R.id.eight_button);
+        nine = (Button) findViewById(R.id.nine_button);
+        dot = (Button) findViewById(R.id.dot_button);
+        del = (Button) findViewById(R.id.delete_button);
+        affichage = (TextView) findViewById(R.id.affichage);
+
+        zero.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                number.append(0);
+                affichage.setText(number.toString());
+            }
+        });
+
+        one.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                number.append(1);
+                affichage.setText(number.toString());
+            }
+        });
+
+        two.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                number.append(2);
+                affichage.setText(number.toString());
+            }
+        });
+
+        three.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                number.append(3);
+                affichage.setText(number.toString());
+            }
+        });
+
+        four.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                number.append(4);
+                affichage.setText(number.toString());
+            }
+        });
+
+        five.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                number.append(5);
+                affichage.setText(number.toString());
+            }
+        });
+
+        six.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                number.append(6);
+                affichage.setText(number.toString());
+            }
+        });
+
+        seven.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                number.append(7);
+                affichage.setText(number.toString());
+            }
+        });
+
+        eight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                number.append(8);
+                affichage.setText(number.toString());
+            }
+        });
+
+        nine.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                number.append(9);
+                affichage.setText(number.toString());
+            }
+        });
+
+        del.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(number.length() > 0)
+                {
+                    number.deleteCharAt(number.length()-1);
+                    affichage.setText(number.toString());
+                }
+                else
+                    affichage.setText("0");
+
+            }
+        });
+
+        sum.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                value1 = Double.parseDouble(number.toString());
+                number.setLength(0);
+                ope = '+';
+                affichage.setText("0");
+            }
+        });
+
+        sub.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                value1 = Double.parseDouble(number.toString());
+                number.setLength(0);
+                ope = '-';
+                affichage.setText("0");
+            }
+        });
+
+        multi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                value1 = Double.parseDouble(number.toString());
+                number.setLength(0);
+                ope = '*';
+                affichage.setText("0");
+            }
+        });
+
+        div.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                value1 = Double.parseDouble(number.toString());
+                number.setLength(0);
+                ope = '/';
+                affichage.setText("0");
+            }
+        });
+
+        clear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                number.setLength(0);
+                affichage.setText("0");
+            }
+        });
+
+        dot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!hasDot)
+                {
+                    number.append('.');
+                    hasDot = true;
+                    affichage.setText(number.toString());
+                }
+            }
+        });
+
+        equal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                value2 = Double.parseDouble(number.toString());
+                res = calcul();
+                number.setLength(0);
+                affichage.clearComposingText();
+                affichage.setText(String.valueOf(res));
+            }
+        });
     }
 
-    private void calcul()
+    private double calcul()
     {
-        if(ope == '*')
-    }
-
-    private void onButtonPressed(View view)
-    {
-        switch(view.getId())
+        if(ope == '+')
         {
-            case R.id.clear_button:
-                this.number = 0;
-                this.listDigit = null;
-                break;
-            case R.id.delete_button:
-                this.listDigit.remove();
-                break;
-            case R.id.percent_button:
-                this.number/=100;
-                break;
-            case R.id.div_button:
-                this.ope = '/';
-                break;
-            case R.id.seven_button:
-                this.listDigit.add(7);
-                break;
-            case R.id.eight_button:
-                this.listDigit.add(8);
-                break;
-            case R.id.nine_button:
-                this.listDigit.add(9);
-                break;
-            case R.id.mult_button:
-                this.ope = '*';
-            case R.id.four_button:
-                this.listDigit.add(4);
-                break;
-            case R.id.five_button:
-                this.listDigit.add(5);
-                break;
-            case R.id.six_button:
-                this.listDigit.add(6);
-                break;
-            case R.id.sub_button:
-                this.ope = '-';
-            case R.id.two_button:
-                this.listDigit.add(2);
-                break;
-            case R.id.three_button:
-                this.listDigit.add(3);
-                break;
-            case R.id.sum_button:
-                this.ope = '+';
-            case R.id.zero_button:
-                this.listDigit.add(0);
-                break;
-            case R.id.dot_button:
-                this.ope = '.';
-            case R.id.res_button:
-                this.calcul();
-
-
+            this.res = this.value1 + this.value2;
+            return res;
         }
+
+        if(ope == '-')
+        {
+            this.res = this.value1 - this.value2;
+            return res;
+        }
+
+        if(ope == '*')
+        {
+            this.res = this.value1 * this.value2;
+            return res;
+        }
+
+        if(ope == '/')
+        {
+            this.res = this.value1 / this.value2;
+            return res;
+        }
+        return 0;
     }
 }
