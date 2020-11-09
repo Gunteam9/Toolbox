@@ -10,4 +10,10 @@
     <string name="permission_denied">Permission denied</string>
     <string name="flashlight_not_detected">Flashlight not detected</string>
     <string name="flashlight_permission_denied">Flashlight\'s permission denied</string>
+    <string name="listnotes">List of notes</string>
+    <string name="addnote">Add</string>
+    <string name="removenote">Remove</string>
+    <string name="editnote">Edit</string>
+    <string name="hinttitle">Title</string>
+    <string name="hintcontent">Content</string>
 </resources>
