@@ -11,4 +11,10 @@
     <string name="permission_denied">Permission refusée</string>
     <string name="flashlight_permission_denied">Vous n\'avez pas permis à l\'application d\'utiliser la lampe torche</string>
     <string name="flashlight_not_detected">La lampe torche de votre téléphone n\'a pas été détectée</string>
+    <string name="listnotes">Liste des notes</string>
+    <string name="addnote">Ajouter</string>
+    <string name="removenote">Supprimer</string>
+    <string name="editnote">Editer</string>
+    <string name="hinttitle">Titre</string>
+    <string name="hintcontent">Contenu</string>
 </resources>

@@ -12,8 +12,9 @@
         android:layout_height="50dp"
         />
 
+
     <TextView
-        android:id="@+id/liste"
+        android:id="@+id/lists"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -21,24 +22,46 @@
         android:text="@string/listnotes"
         android:layout_marginBottom="10dp"
         />
-    <Space
+    <ListView
+        android:id="@+id/notelist"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:layout_marginBottom="10dp"
         />
-    <Button
-        android:layout_width="100dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/addnote"
-        />
+        android:orientation="horizontal"
+        android:gravity="center">
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="@string/addnote"
+            android:onClick="addNote"
+            />
 
-    <Button
-        android:layout_width="100dp"
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="mod"
+            android:onClick="modifyNote"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/back"
-        android:onClick="back"
-        />
+        android:orientation="horizontal"
+        android:gravity="center">
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="sup"
+            android:onClick="removeNote"/>
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="@string/back"
+            android:onClick="back"
+            />
+    </LinearLayout>
 </LinearLayout>
