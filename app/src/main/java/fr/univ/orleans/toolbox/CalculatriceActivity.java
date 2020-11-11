@@ -7,7 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 public class CalculatriceActivity extends AppCompatActivity {
@@ -18,6 +20,7 @@ public class CalculatriceActivity extends AppCompatActivity {
     double value1, value2, res;
     char ope;
     Button equal, clear, del, sum, sub, multi, div, zero, one, two, three, four, five, six, seven, eight, nine, dot;
+    List<String> history = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -141,40 +144,60 @@ public class CalculatriceActivity extends AppCompatActivity {
         sum.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                value1 = Double.parseDouble(number.toString());
-                number.setLength(0);
-                ope = '+';
-                affichage.setText("0");
+                if(number.toString().length() > 0)
+                {
+                    value1 = Double.parseDouble(number.toString());
+                    history.add(number.toString());
+                    number.setLength(0);
+                    ope = '+';
+                    affichage.setText("0");
+                }
+
             }
         });
 
         sub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                value1 = Double.parseDouble(number.toString());
-                number.setLength(0);
-                ope = '-';
-                affichage.setText("0");
+                if(number.toString().length() > 0)
+                {
+                    value1 = Double.parseDouble(number.toString());
+                    history.add(number.toString());
+                    number.setLength(0);
+                    ope = '-';
+                    affichage.setText("0");
+                }
+
             }
         });
 
         multi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                value1 = Double.parseDouble(number.toString());
-                number.setLength(0);
-                ope = '*';
-                affichage.setText("0");
+                if(number.toString().length() > 0)
+                {
+                    value1 = Double.parseDouble(number.toString());
+                    history.add(number.toString());
+                    number.setLength(0);
+                    ope = '*';
+                    affichage.setText("0");
+                }
+
             }
         });
 
         div.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                value1 = Double.parseDouble(number.toString());
-                number.setLength(0);
-                ope = '/';
-                affichage.setText("0");
+                if(number.toString().length() > 0)
+                {
+                    value1 = Double.parseDouble(number.toString());
+                    history.add(number.toString());
+                    number.setLength(0);
+                    ope = '/';
+                    affichage.setText("0");
+                }
+
             }
         });
 
@@ -201,11 +224,24 @@ public class CalculatriceActivity extends AppCompatActivity {
         equal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                value2 = Double.parseDouble(number.toString());
-                res = calcul();
-                number.setLength(0);
-                affichage.clearComposingText();
-                affichage.setText(String.valueOf(res));
+                if(number.toString().length() > 0)
+                {
+                    value2 = Double.parseDouble(number.toString());
+                    res = calcul();
+                    history.set(history.size()-1,  history.get(history.size()-1) + " " + ope + " " + number.toString() + " = " + res);
+                    for(String calcul : history)
+                        System.out.println(calcul);
+                    number.setLength(0);
+                    ope = ' ';
+                    affichage.clearComposingText();
+                    affichage.setText(String.valueOf(res));
+                }
+                else
+                {
+                    affichage.setText(String.valueOf(value1));
+                    ope = ' ';
+                }
+
             }
         });
     }
