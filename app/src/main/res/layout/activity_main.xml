@@ -17,10 +17,10 @@
         android:id="@+id/flashLightButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:contentDescription="@string/flashlight"
         android:onClick="openFlashLight"
         app:layout_columnWeight="1"
-        app:srcCompat="@mipmap/flashlight_icon_foreground"
-        android:contentDescription="@string/flashlight" />
+        app:srcCompat="@mipmap/flashlight_icon_foreground" />
 
     <ImageView
         android:id="@+id/calculatorButton"

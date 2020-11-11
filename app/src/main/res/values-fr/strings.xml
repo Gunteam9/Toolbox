@@ -11,4 +11,6 @@
     <string name="permission_denied">Permission refusée</string>
     <string name="flashlight_permission_denied">Vous n\'avez pas permis à l\'application d\'utiliser la lampe torche</string>
     <string name="flashlight_not_detected">La lampe torche de votre téléphone n\'a pas été détectée</string>
+    <string name="clear">Effacer</string>
+    <string name="delete">Supprimer</string>
 </resources>

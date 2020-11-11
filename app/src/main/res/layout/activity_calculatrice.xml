@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:weightSum="6"
+    app:orientation="horizontal"
     tools:context=".CalculatriceActivity">
 
 
@@ -21,7 +22,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:weightSum="4">
+        android:weightSum="4"
+        style="?android:attr/buttonBarStyle">
 
         <Button
             android:id="@+id/clear_button"
@@ -30,7 +32,8 @@
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:scaleType="fitCenter"
-            android:text="@string/clear" />
+            android:text="@string/clear"
+            style="?android:attr/buttonBarButtonStyle" />
 
         <Button
             android:id="@+id/delete_button"
@@ -39,7 +42,8 @@
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:scaleType="fitCenter"
-            android:text="@string/delete" />
+            android:text="@string/delete"
+            style="?android:attr/buttonBarButtonStyle" />
 
         <Button
             android:id="@+id/percent_button"
@@ -48,7 +52,8 @@
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:scaleType="fitCenter"
-            android:text="@string/percent" />
+            android:text="@string/percent"
+            style="?android:attr/buttonBarButtonStyle" />
 
         <Button
             android:id="@+id/div_button"
@@ -57,7 +62,8 @@
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:scaleType="fitCenter"
-            android:text="@string/div" />
+            android:text="@string/div"
+            style="?android:attr/buttonBarButtonStyle" />
     </LinearLayout>
     
     <LinearLayout
@@ -73,7 +79,8 @@
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:scaleType="fitCenter"
-            android:text="@string/seven" />
+            android:text="@string/seven"
+            style="?android:attr/buttonBarButtonStyle" />
 
         <Button
             android:id="@+id/eight_button"
@@ -82,7 +89,8 @@
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:scaleType="fitCenter"
-            android:text="@string/eight" />
+            android:text="@string/eight"
+            style="?android:attr/buttonBarButtonStyle" />
 
         <Button
             android:id="@+id/nine_button"
@@ -91,7 +99,8 @@
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:scaleType="fitCenter"
-            android:text="@string/nine" />
+            android:text="@string/nine"
+            style="?android:attr/buttonBarButtonStyle" />
 
         <Button
             android:id="@+id/mult_button"
@@ -100,7 +109,8 @@
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:scaleType="fitCenter"
-            android:text="@string/multiply" />
+            android:text="@string/multiply"
+            style="?android:attr/buttonBarButtonStyle" />
     </LinearLayout>
 
     <LinearLayout
@@ -116,7 +126,8 @@
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:scaleType="fitCenter"
-            android:text="@string/four" />
+            android:text="@string/four"
+            style="?android:attr/buttonBarButtonStyle" />
 
         <Button
             android:id="@+id/five_button"
@@ -125,7 +136,8 @@
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:scaleType="fitCenter"
-            android:text="@string/five" />
+            android:text="@string/five"
+            style="?android:attr/buttonBarButtonStyle" />
 
         <Button
             android:id="@+id/six_button"
@@ -134,7 +146,8 @@
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:scaleType="fitCenter"
-            android:text="@string/six" />
+            android:text="@string/six"
+            style="?android:attr/buttonBarButtonStyle" />
 
         <Button
             android:id="@+id/sub_button"
@@ -143,7 +156,8 @@
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:scaleType="fitCenter"
-            android:text="@string/substract" />
+            android:text="@string/substract"
+            style="?android:attr/buttonBarButtonStyle" />
     </LinearLayout>
 
     <LinearLayout
@@ -159,7 +173,8 @@
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:scaleType="fitCenter"
-            android:text="@string/one" />
+            android:text="@string/one"
+            style="?android:attr/buttonBarButtonStyle" />
 
         <Button
             android:id="@+id/two_button"
@@ -168,7 +183,8 @@
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:scaleType="fitCenter"
-            android:text="@string/two" />
+            android:text="@string/two"
+            style="?android:attr/buttonBarButtonStyle" />
 
         <Button
             android:id="@+id/three_button"
@@ -177,7 +193,8 @@
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:scaleType="fitCenter"
-            android:text="@string/three" />
+            android:text="@string/three"
+            style="?android:attr/buttonBarButtonStyle" />
 
         <Button
             android:id="@+id/sum_button"
@@ -186,7 +203,8 @@
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:scaleType="fitCenter"
-            android:text="@string/sum" />
+            android:text="@string/sum"
+            style="?android:attr/buttonBarButtonStyle" />
     </LinearLayout>
 
     <LinearLayout
@@ -202,7 +220,8 @@
             android:layout_weight="2"
             android:background="@android:color/transparent"
             android:scaleType="fitCenter"
-            android:text="@string/zero" />
+            android:text="@string/zero"
+            style="?android:attr/buttonBarButtonStyle" />
 
         <Button
             android:id="@+id/dot_button"
@@ -211,7 +230,8 @@
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:scaleType="fitCenter"
-            android:text="@string/dot" />
+            android:text="@string/dot"
+            style="?android:attr/buttonBarButtonStyle" />
 
         <Button
             android:id="@+id/res_button"
@@ -220,6 +240,7 @@
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:scaleType="fitCenter"
-            android:text="@string/result" />
+            android:text="@string/result"
+            style="?android:attr/buttonBarButtonStyle" />
     </LinearLayout>
 </LinearLayout>
