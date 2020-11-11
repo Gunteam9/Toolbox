@@ -23,8 +23,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this, Flashlight.class));
     }
 
-    public void openCalculator(View view) {
-        startActivity(new Intent(this, Calculator.class));
+    public void openCalculatrice(View view) {
+        startActivity(new Intent(this, CalculatriceActivity.class));
     }
 
     public void openNotepad(View view) {

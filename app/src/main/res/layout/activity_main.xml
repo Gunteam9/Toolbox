@@ -27,7 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/calculator"
-        android:onClick="openCalculator"
+        android:onClick="openCalculatrice"
         app:layout_columnWeight="1"
         app:srcCompat="@mipmap/calculator_foreground" />
 
