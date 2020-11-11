@@ -13,6 +13,9 @@ public class EditNoteActivity extends AppCompatActivity {
     EditText title,content;
     private String id;
 
+    public static final String EXTRA_TITLE = "Title";
+    public static final String EXTRA_CONTENT = "Content";
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,11 +24,11 @@ public class EditNoteActivity extends AppCompatActivity {
         content = findViewById(R.id.edit_note_content);
         //intent pour recevoir des infos
         Intent receivedData = getIntent();
-        //on recupere les trois champs passé
+        //on recupere les trois champs passés
         String receivedTitle = receivedData.getStringExtra("title");
         String receivedContent = receivedData.getStringExtra("content");
         String receivedId = receivedData.getStringExtra("id");
-        //on initialise nos edittext avec
+        //on initialise nos edittext avec et on stock l'id
         title.setText(receivedTitle);
         content.setText(receivedContent);
         id = receivedId;
@@ -41,21 +44,24 @@ public class EditNoteActivity extends AppCompatActivity {
         super.onPause();
     }
 
+    /**
+     * Method that validate the actual note (that allow to create a new note or modify an existing note)
+     */
     public void validateNote(View view){
         if (id == null){
             String vtitle = title.getText().toString();
             String vcontent = content.getText().toString();
             Intent result = new Intent();
-            result.putExtra("title",vtitle);
-            result.putExtra("content",vcontent);
+            result.putExtra(EXTRA_TITLE,vtitle);
+            result.putExtra(EXTRA_CONTENT,vcontent);
             setResult(0,result);
             finish();
         } else {
             String vtitle = title.getText().toString();
             String vcontent = content.getText().toString();
             Intent result = new Intent();
-            result.putExtra("title",vtitle);
-            result.putExtra("content",vcontent);
+            result.putExtra(EXTRA_TITLE,vtitle);
+            result.putExtra(EXTRA_CONTENT,vcontent);
             result.putExtra("id",id);
             setResult(1,result);
             finish();

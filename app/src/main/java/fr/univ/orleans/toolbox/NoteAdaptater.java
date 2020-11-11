@@ -12,6 +12,9 @@ import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 
+/**
+ * An adaptater that allow a good display of our note
+ */
 public class NoteAdaptater extends ArrayAdapter<Note> {
     private Context context;
     int ressource;
@@ -28,7 +31,7 @@ public class NoteAdaptater extends ArrayAdapter<Note> {
         String title = getItem(position).getTitle();
         String content = getItem(position).getContent();
 
-        Note note = new Note(title,content);
+        //Note note = new Note(title,content);
 
         LayoutInflater inflater = LayoutInflater.from(context);
         convertView = inflater.inflate(ressource,parent,false);

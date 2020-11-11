@@ -13,7 +13,8 @@
     <string name="listnotes">List of notes</string>
     <string name="addnote">Add</string>
     <string name="removenote">Remove</string>
-    <string name="editnote">Edit</string>
+    <string name="validate">Validate</string>
     <string name="hinttitle">Title</string>
     <string name="hintcontent">Content</string>
+    <string name="modify">Modify</string>
 </resources>

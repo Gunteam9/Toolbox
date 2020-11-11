@@ -43,7 +43,7 @@
         <Button
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:text="mod"
+            android:text="@string/modify"
             android:onClick="modifyNote"
             />
     </LinearLayout>
@@ -55,7 +55,7 @@
         <Button
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:text="sup"
+            android:text="@string/removenote"
             android:onClick="removeNote"/>
         <Button
             android:layout_width="100dp"

@@ -37,11 +37,16 @@ public class Notepad extends AppCompatActivity {
         this.adapter.notifyDataSetChanged();
     }
 
-
+    /**
+     * Method for the add button
+     */
     public void addNote(View view){
         startActivityForResult(new Intent(this,EditNoteActivity.class), 0 );
     }
 
+    /**
+     * Method for the remove button
+     */
     public void removeNote(View view){
         if(selectedNote != null){
             k.removeInList(selectedNote.getTitle());
@@ -50,6 +55,9 @@ public class Notepad extends AppCompatActivity {
         }
     }
 
+    /**
+     * Method for the modify button
+     */
     public void modifyNote(View view){
         if(selectedNote != null){
             Intent intent = new Intent(Notepad.this,EditNoteActivity.class);
@@ -60,15 +68,19 @@ public class Notepad extends AppCompatActivity {
         }
     }
 
+    /**
+     * Method that receive the data (depending of the button choosen on the notepad activity)
+     */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        //récupère le résultat de l'ajout d'une note
         if (requestCode == 0){
             String title = null;
             String content = null;
             try {
-                title = data.getStringExtra("title");
-                content = data.getStringExtra("content");
+                title = data.getStringExtra(EditNoteActivity.EXTRA_TITLE);
+                content = data.getStringExtra(EditNoteActivity.EXTRA_CONTENT);
             } catch (NullPointerException ignored){}
             if (title == null || content == null){
                 Log.e("Notepad","missing field");
@@ -77,13 +89,14 @@ public class Notepad extends AppCompatActivity {
             k.addInList(title, content);
             this.adapter.notifyDataSetChanged();
         }
+        //récupère le résultat de la modification d'une note
         if (requestCode == 1){
             String title = null;
             String content = null;
             String id = null;
             try {
-                title = data.getStringExtra("title");
-                content = data.getStringExtra("content");
+                title = data.getStringExtra(EditNoteActivity.EXTRA_TITLE);
+                content = data.getStringExtra(EditNoteActivity.EXTRA_CONTENT);
                 id = data.getStringExtra("id");
             } catch (NullPointerException ignored){}
             if (title == null || content == null || id == null){
