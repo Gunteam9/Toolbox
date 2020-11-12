@@ -30,6 +30,7 @@
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:scaleType="fitCenter"
+            android:onClick="deleteOperation"
             android:text="@string/clear" />
 
         <Button
@@ -39,6 +40,7 @@
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:scaleType="fitCenter"
+            android:onClick="deleteDigit"
             android:text="@string/delete" />
 
         <Button
@@ -48,6 +50,7 @@
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:scaleType="fitCenter"
+            android:onClick="calculPourcentage"
             android:text="@string/percent" />
 
         <Button
@@ -57,6 +60,7 @@
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:scaleType="fitCenter"
+            android:onClick="addOpe"
             android:text="@string/div" />
     </LinearLayout>
     
@@ -73,6 +77,7 @@
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:scaleType="fitCenter"
+            android:onClick="addDigit"
             android:text="@string/seven" />
 
         <Button
@@ -82,6 +87,7 @@
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:scaleType="fitCenter"
+            android:onClick="addDigit"
             android:text="@string/eight" />
 
         <Button
@@ -91,6 +97,7 @@
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:scaleType="fitCenter"
+            android:onClick="addDigit"
             android:text="@string/nine" />
 
         <Button
@@ -100,6 +107,7 @@
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:scaleType="fitCenter"
+            android:onClick="addOpe"
             android:text="@string/multiply" />
     </LinearLayout>
 
@@ -116,6 +124,7 @@
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:scaleType="fitCenter"
+            android:onClick="addDigit"
             android:text="@string/four" />
 
         <Button
@@ -125,6 +134,7 @@
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:scaleType="fitCenter"
+            android:onClick="addDigit"
             android:text="@string/five" />
 
         <Button
@@ -134,6 +144,7 @@
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:scaleType="fitCenter"
+            android:onClick="addDigit"
             android:text="@string/six" />
 
         <Button
@@ -143,6 +154,7 @@
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:scaleType="fitCenter"
+            android:onClick="addOpe"
             android:text="@string/substract" />
     </LinearLayout>
 
@@ -159,6 +171,7 @@
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:scaleType="fitCenter"
+            android:onClick="addDigit"
             android:text="@string/one" />
 
         <Button
@@ -168,6 +181,7 @@
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:scaleType="fitCenter"
+            android:onClick="addDigit"
             android:text="@string/two" />
 
         <Button
@@ -177,6 +191,7 @@
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:scaleType="fitCenter"
+            android:onClick="addDigit"
             android:text="@string/three" />
 
         <Button
@@ -186,6 +201,7 @@
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:scaleType="fitCenter"
+            android:onClick="addOpe"
             android:text="@string/sum" />
     </LinearLayout>
 
@@ -202,6 +218,7 @@
             android:layout_weight="2"
             android:background="@android:color/transparent"
             android:scaleType="fitCenter"
+            android:onClick="addDigit"
             android:text="@string/zero" />
 
         <Button
@@ -211,6 +228,7 @@
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:scaleType="fitCenter"
+            android:onClick="addOpe"
             android:text="@string/dot" />
 
         <Button
@@ -220,6 +238,7 @@
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:scaleType="fitCenter"
+            android:onClick="resultat"
             android:text="@string/result" />
     </LinearLayout>
 </LinearLayout>

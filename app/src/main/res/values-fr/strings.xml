@@ -11,4 +11,24 @@
     <string name="permission_denied">Permission refusée</string>
     <string name="flashlight_permission_denied">Vous n\'avez pas permis à l\'application d\'utiliser la lampe torche</string>
     <string name="flashlight_not_detected">La lampe torche de votre téléphone n\'a pas été détectée</string>
+    <string name="clear">clear</string>
+    <string name="delete">del</string>
+    <string name="percent">%</string>
+    <string name="div">/</string>
+    <string name="seven">7</string>
+    <string name="eight">8</string>
+    <string name="nine">9</string>
+    <string name="multiply">*</string>
+    <string name="four">4</string>
+    <string name="five">5</string>
+    <string name="six">6</string>
+    <string name="substract">-</string>
+    <string name="one">1</string>
+    <string name="two">2</string>
+    <string name="three">3</string>
+    <string name="sum">+</string>
+    <string name="zero">0</string>
+    <string name="dot">.</string>
+    <string name="result">=</string>
+    <string name="divzero">Impossible de diviser par zero</string>
 </resources>

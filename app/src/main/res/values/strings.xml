@@ -29,4 +29,5 @@
     <string name="zero">0</string>
     <string name="dot">.</string>
     <string name="result">=</string>
+    <string name="divzero">impossible to divide by zero</string>
 </resources>
