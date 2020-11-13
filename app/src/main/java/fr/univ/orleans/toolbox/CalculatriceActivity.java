@@ -33,7 +33,7 @@ public class CalculatriceActivity extends AppCompatActivity {
 
 
     /**
-     * Fonction ajoutant une opération ou une opérande à la liste de caractères
+     * Fonction ajoutant un opérateur ou un point lorsqu'on appuie sur une de ces touches
      * @param view
      */
     public void addOpe(View view)
@@ -57,6 +57,11 @@ public class CalculatriceActivity extends AppCompatActivity {
         affichage.setText(number.toString());
     }
 
+    /**
+     * Méthode ajoutant un chiffre lorsqu'on appuie sur un des boutons d'un chiffre
+     * @param view
+     */
+
     public void addDigit(View view)
     {
         Button button = (Button) view;
@@ -67,7 +72,7 @@ public class CalculatriceActivity extends AppCompatActivity {
     }
 
     /**
-     * Supprime le dernier chiffre (ou le symbole .)
+     * Supprime le dernier chiffre (ou le symbole .) lorsqu'on appuie sur la touche DEL
      * @param view
      */
 
@@ -77,23 +82,40 @@ public class CalculatriceActivity extends AppCompatActivity {
         {
             number.deleteCharAt(number.length()-1);
             affichage.setText(number.toString());
+            if(hasDot)
+                hasDot = false;
         }
         else
             if(number.length() == 0)
                 affichage.setText("0");
+            else {
+                if(checkOperator(number.length() - 1) && !hasOperator)
+                    hasOperator = true;
+            }
     }
 
     /**
-     * Supprime l'opération
+     * Méthode qui supprime l'opération lorsqu'on appuie sur la touche CLEAR
      * @param view
      */
 
     public void deleteOperation(View view)
     {
+        if(hasOperator)
+            hasOperator = false;
+
+        if(hasDot)
+            hasDot = false;
+
         number.setLength(0);
         number.append(0);
         affichage.setText("0");
     }
+
+    /**
+     * Méthode gérant
+     * @param view
+     */
 
     public void calculPourcentage(View view)
     {
@@ -103,10 +125,7 @@ public class CalculatriceActivity extends AppCompatActivity {
 
         for(int i = number.length() - 1; i >=0; i--)
         {
-            if(number.charAt(i) == '+' ||
-                    number.charAt(i) == '-' ||
-                    number.charAt(i) == '*' ||
-                    number.charAt(i) == '/')
+            if(checkOperator(i))
                 index = i+1;
         }
 
@@ -118,25 +137,29 @@ public class CalculatriceActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Méthode calculant l'opération en transformant le StringBuilder en deux Stack et en prenant en compte l'ordre de priorité des opérations
+     * @param view
+     */
+
     public void resultat(View view)
     {
         double res = 0;
         Stack<Double> operandes = new Stack<>();
         Stack<Character> operators = new Stack<>();
 
+        /**
+         * Si la 1re touche appuyée est la touche "="
+         */
         if (number.length() == 0)
             return;
 
-        //Supprime le point dans le cas où ce serait le dernier symbole du String
-        if(number.charAt(number.length()-1) == '.' ||
-                number.charAt(number.length()-1) == '+' ||
-                number.charAt(number.length()-1) == '-' ||
-                number.charAt(number.length()-1) == '*' ||
-                number.charAt(number.length()-1) == '/'
-        )
+        //Supprime le point ou un opérateur dans le cas où ce serait le dernier symbole du String
+        if(checkOperator(number.length()-1))
             number.deleteCharAt(number.length()-1);
 
 
+        //S'il n'y a qu'un seule chiffre dans le String
         if(number.length() == 1)
         {
             res = Double.parseDouble(number.toString());
@@ -148,6 +171,7 @@ public class CalculatriceActivity extends AppCompatActivity {
         for(int i = 0; i < number.length(); i++)
         {
             StringBuilder val = new StringBuilder();
+            //Si l'opérande commence par un ".", ça devient "0."
             if(number.charAt(i) == '.')
                 val.append(0);
             else
@@ -165,7 +189,7 @@ public class CalculatriceActivity extends AppCompatActivity {
                 }
             }
 
-            if(number.charAt(i) == '+' || number.charAt(i) == '-' || number.charAt(i) == '*' || number.charAt(i) == '/')
+            if(checkOperator(i))
             {
                 if(!operators.empty() && ((number.charAt(i) == '+' || number.charAt(i) == '-')
                                         && operators.peek() == '*' || operators.peek() == '/'))
@@ -216,5 +240,10 @@ public class CalculatriceActivity extends AppCompatActivity {
                 break;
         }
         return res;
+    }
+
+    private boolean checkOperator(int index)
+    {
+        return number.charAt(index) == '+' || number.charAt(index) == '-' || number.charAt(index) == '*' || number.charAt(index) == '/';
     }
 }
