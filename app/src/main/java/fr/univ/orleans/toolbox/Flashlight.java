@@ -21,7 +21,6 @@ import android.widget.Toast;
 
 public class Flashlight extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener {
 
-    private SeekBar seekbar;
     private TextView blinkingSpeedLabel;
     private ImageButton imageButton;
 
@@ -39,7 +38,7 @@ public class Flashlight extends AppCompatActivity implements SeekBar.OnSeekBarCh
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flashlight);
 
-        seekbar = findViewById(R.id.blinkingSpeed);
+        SeekBar seekbar = findViewById(R.id.blinkingSpeed);
         seekbar.setOnSeekBarChangeListener(this);
         blinkingSpeedLabel = findViewById(R.id.blinkingSpeedLabel);
         imageButton = findViewById(R.id.imageButton);
@@ -52,9 +51,6 @@ public class Flashlight extends AppCompatActivity implements SeekBar.OnSeekBarCh
         }
 
         hasFlashlight = getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH);
-        isFlashlightOn = getFlashlightStatus();
-        if (isFlashlightOn)
-            imageButton.setImageResource(R.mipmap.flashlight_on_foreground);
     }
 
     /**
