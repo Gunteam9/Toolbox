@@ -13,17 +13,15 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="test"
-            android:textSize="35sp"
+            android:text="@string/hinttitle"
+            android:textSize="30sp"
             android:textStyle="bold"
             android:id="@+id/titleview"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="test2 je vais rallonger la longeur de l'element pour voir si cela fonctionne
-test2 je vais rallonger la longeur de l'element pour voir si cel
-test2 je vais rallonger la longeur de l'element pour voir si cel"
-            android:textSize="20sp"
+            android:text="@string/hintcontent"
+            android:textSize="15sp"
             android:id="@+id/contentview"/>
 
     </LinearLayout>

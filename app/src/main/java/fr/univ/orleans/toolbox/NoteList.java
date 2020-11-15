@@ -1,13 +1,33 @@
 package fr.univ.orleans.toolbox;
 
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+
 import java.util.ArrayList;
 
 public class NoteList {
     ArrayList<Note> listNote;
+    DbOpenHelper db;
+    Context context;
 
-    public NoteList(){
+    public NoteList(Context context){
         listNote = new ArrayList<>();
-
+        this.context = context.getApplicationContext();
+        db = new DbOpenHelper(this.context,"db",null,1);
+        SQLiteDatabase finDB = db.getReadableDatabase();
+        Cursor cursor = finDB.query(DbOpenHelper.TABLE_NOTE, new String[]{DbOpenHelper.COLUMN_TITLE, DbOpenHelper.COLUMN_CONTENT}, null, null, null, null, null);
+        try {
+            while (cursor.moveToNext()) {
+                listNote.add(new Note(cursor.getString(0),cursor.getString(1)));
+            }
+        }
+        finally {
+            cursor.close();
+        }
+        finDB.close();
     }
 
     /**
@@ -15,6 +35,12 @@ public class NoteList {
      */
     public void addInList(String title, String content){
         listNote.add(new Note(title,content));
+        SQLiteDatabase actualdb = db.getWritableDatabase();
+        ContentValues note =new ContentValues();
+        note.put(DbOpenHelper.COLUMN_TITLE,title);
+        note.put(DbOpenHelper.COLUMN_CONTENT,content);
+        actualdb.insert(DbOpenHelper.TABLE_NOTE,null,note);
+        db.close();
     }
 
     /**
@@ -25,6 +51,9 @@ public class NoteList {
             Note n=listNote.get(i);
             if (title.equals(n.getTitle())) {
                 listNote.remove(n);
+                SQLiteDatabase actualdb = db.getWritableDatabase();
+                actualdb.delete(DbOpenHelper.TABLE_NOTE,DbOpenHelper.COLUMN_TITLE+" = ?", new String[]{title});
+                db.close();
             }
         }
     }
@@ -38,6 +67,13 @@ public class NoteList {
             if (id.equals(n.getId())) {
                 listNote.get(i).setTitle(title);
                 listNote.get(i).setContent(content);
+                //La suite fait planté l'appli lors d'une modif
+                //SQLiteDatabase actualdb = db.getWritableDatabase();
+                //ContentValues note =new ContentValues();
+                //note.put(DbOpenHelper.COLUMN_TITLE,title);
+               // note.put(DbOpenHelper.COLUMN_CONTENT,content);
+               // actualdb.update(DbOpenHelper.TABLE_NOTE, note,DbOpenHelper.COLUMN_ID+" = ?",new String[]{id});
+               // db.close();
             }
         }
     }

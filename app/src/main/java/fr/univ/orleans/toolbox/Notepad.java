@@ -12,7 +12,7 @@ import android.widget.ListView;
 
 public class Notepad extends AppCompatActivity {
 
-    NoteList k = new NoteList();
+    NoteList k;
     ListView list;
     private NoteAdaptater adapter;
     Note selectedNote;
@@ -22,8 +22,8 @@ public class Notepad extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notepad);
+        k = new NoteList(this);
         list = (ListView)findViewById(R.id.notelist);
-        k.addInList("abc","def");
 
         this.adapter = new NoteAdaptater(this,R.layout.adapter_view_note,k.getListNote());
         list.setAdapter(adapter);
