@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="flashlight">Lampe Torche</string>
+    <string name="app_name">La boite à outils</string>
+    <string name="calculator" >Calculatrice</string>
+    <string name="notepad" >Bloc note</string>
+    <string name="flashlight_on" >Allumer la lampe torche</string>
+    <string name="blinkingSpeed">Vitesse de clignotement</string>
+    <string name="back">Retour</string>
+    <string name="permission_granted">Permission accordée</string>
+    <string name="permission_denied">Permission refusée</string>
+    <string name="flashlight_permission_denied">Vous n\'avez pas permis à l\'application d\'utiliser la lampe torche</string>
+    <string name="flashlight_not_detected">La lampe torche de votre téléphone n\'a pas été détectée</string>
+    <string name="listnotes">Liste des notes</string>
+    <string name="addnote">Ajouter</string>
+    <string name="removenote">Supprimer</string>
+    <string name="hinttitle">Titre</string>
+    <string name="hintcontent">Contenu</string>
+    <string name="validate">Valider</string>
+    <string name="modify">Modifier</string>
+    <string name="divzero">Impossible de diviser par zero</string>
+    <string name="clear">Effacer</string>
+    <string name="delete">Supprimer</string>
+    <string name="currencyConverter" >Convertisseur de devise</string>
+    <string name="swap">échanger</string>
+    <string name="read_error" >Erreur de lecture</string>
+    <string name="connect_error" >Erreur de connexion</string>
+    <string name="api_error" >Erreur lors de la récupération des données</string>
+</resources>

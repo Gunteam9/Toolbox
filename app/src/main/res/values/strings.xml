@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">Toolbox</string>
+    <string name="flashlight">Flashlight</string>
+    <string name="calculator">Calculator</string>
+    <string name="notepad">Notepad</string>
+    <string name="flashlight_on">Flashlight On</string>
+    <string name="blinkingSpeed">Blinking speed</string>
+    <string name="back">Back</string>
+    <string name="permission_granted">Permission granted</string>
+    <string name="permission_denied">Permission denied</string>
+    <string name="flashlight_not_detected">Flashlight not detected</string>
+    <string name="flashlight_permission_denied">Flashlight\'s permission denied</string>
+    <string name="clear">Clear</string>
+    <string name="delete">Delete</string>
+    <string name="percent" translatable="false">%</string>
+    <string name="div" translatable="false">/</string>
+    <string name="seven" translatable="false">7</string>
+    <string name="eight" translatable="false">8</string>
+    <string name="nine" translatable="false">9</string>
+    <string name="multiply" translatable="false">*</string>
+    <string name="four" translatable="false">4</string>
+    <string name="five" translatable="false">5</string>
+    <string name="six" translatable="false">6</string>
+    <string name="substract" translatable="false">-</string>
+    <string name="one" translatable="false">1</string>
+    <string name="two" translatable="false">2</string>
+    <string name="three" translatable="false">3</string>
+    <string name="sum" translatable="false">+</string>
+    <string name="zero" translatable="false">0</string>
+    <string name="dot" translatable="false">.</string>
+    <string name="result" translatable="false">=</string>
+    <string name="listnotes">List of notes</string>
+    <string name="addnote">Add</string>
+    <string name="removenote">Remove</string>
+    <string name="validate">Validate</string>
+    <string name="hinttitle">Title</string>
+    <string name="hintcontent">Content</string>
+    <string name="modify">Modify</string>
+    <string name="divzero">impossible to divide by zero</string>
+    <string name="currencyConverter" >Currency Converter</string>
+    <string name="swap">swap</string>
+    <string name="read_error" >Reading error</string>
+    <string name="connect_error" >Connection error</string>
+    <string name="api_error" >Error on receiving data</string>
+</resources>
