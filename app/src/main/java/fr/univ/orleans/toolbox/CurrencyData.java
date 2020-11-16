@@ -1,23 +1,19 @@
 package fr.univ.orleans.toolbox;
 
+import org.json.JSONObject;
+
 import java.time.LocalDateTime;
 
 public class CurrencyData {
 
     private LocalDateTime date;
     private String source;
-    private String target;
-    private float value;
-    private float quantity;
-    private float amount;
+    private JSONObject targets;
 
-    public CurrencyData(LocalDateTime date, String source, String target, float value, float quantity, float amount) {
+    public CurrencyData(LocalDateTime date, String source, JSONObject targets) {
         this.date = date;
         this.source = source;
-        this.target = target;
-        this.value = value;
-        this.quantity = quantity;
-        this.amount = amount;
+        this.targets = targets;
     }
 
     public LocalDateTime getDate() {
@@ -36,36 +32,12 @@ public class CurrencyData {
         this.source = source;
     }
 
-    public String getTarget() {
-        return target;
+    public JSONObject getTargets() {
+        return targets;
     }
 
-    public void setTarget(String target) {
-        this.target = target;
-    }
-
-    public float getValue() {
-        return value;
-    }
-
-    public void setValue(float value) {
-        this.value = value;
-    }
-
-    public float getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(float quantity) {
-        this.quantity = quantity;
-    }
-
-    public float getAmount() {
-        return amount;
-    }
-
-    public void setAmount(float amount) {
-        this.amount = amount;
+    public void setTargets(JSONObject targets) {
+        this.targets = targets;
     }
 
     @Override
@@ -73,10 +45,7 @@ public class CurrencyData {
         return "CurrencyData{" +
                 "date=" + date +
                 ", source='" + source + '\'' +
-                ", target='" + target + '\'' +
-                ", value=" + value +
-                ", quantity=" + quantity +
-                ", amount=" + amount +
+                ", targets=" + targets +
                 '}';
     }
 }

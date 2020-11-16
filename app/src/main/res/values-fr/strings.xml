@@ -17,4 +17,5 @@
     <string name="swap">échanger</string>
     <string name="read_error" >Erreur de lecture</string>
     <string name="connect_error" >Erreur de connexion</string>
+    <string name="api_error" />
 </resources>

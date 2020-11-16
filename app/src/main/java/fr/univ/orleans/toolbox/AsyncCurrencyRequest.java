@@ -19,6 +19,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
 
 public class AsyncCurrencyRequest extends AsyncTask<URL, String, CurrencyData> {
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -69,15 +71,17 @@ public class AsyncCurrencyRequest extends AsyncTask<URL, String, CurrencyData> {
     @RequiresApi(api = Build.VERSION_CODES.O)
     private CurrencyData transformData(JSONObject jsonObject) {
         try {
-            LocalDateTime date = LocalDateTime.parse(jsonObject.getString("updated"));
-            System.out.println(date);
-            String source = jsonObject.getString("source");
-            String target = jsonObject.getString("target");
-            float value = (float) jsonObject.getDouble("value");
-            float quantity = (float) jsonObject.getDouble("quantity");
-            float amount = (float) jsonObject.getDouble("amount");
+            //If error
+            if (!jsonObject.getString("result").equals("success")) {
+                Toast.makeText(MainActivity.getAppContext(), R.string.api_error, Toast.LENGTH_LONG).show();
+                return null;
+            }
 
-            return new CurrencyData(date, source, target, value, quantity, amount);
+            LocalDateTime date = LocalDateTime.parse(jsonObject.getString("time_last_update_utc"), DateTimeFormatter.RFC_1123_DATE_TIME);
+            String source = jsonObject.getString("base_code");
+            JSONObject targets = (JSONObject) jsonObject.get("conversion_rates");
+
+            return new CurrencyData(date, source, targets);
         } catch (JSONException e) {
             e.printStackTrace();
         }

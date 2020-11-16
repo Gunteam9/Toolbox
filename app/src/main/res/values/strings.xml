@@ -33,4 +33,5 @@
     <string name="swap">swap</string>
     <string name="read_error" >Reading error</string>
     <string name="connect_error" >Connection error</string>
+    <string name="api_error" />
 </resources>

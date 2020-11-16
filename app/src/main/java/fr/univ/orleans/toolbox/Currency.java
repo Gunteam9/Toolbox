@@ -19,6 +19,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import org.json.JSONException;
+
 import java.net.URL;
 import java.net.URLEncoder;
 import java.time.format.DateTimeFormatter;
@@ -65,6 +67,7 @@ public class Currency extends AppCompatActivity {
         spinnerCurrency2.setSelection(0);
 
         spinnerCurrency1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 currency1 = texts[position];
@@ -78,6 +81,7 @@ public class Currency extends AppCompatActivity {
         });
 
         spinnerCurrency2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 currency2 = texts[position];
@@ -96,6 +100,7 @@ public class Currency extends AppCompatActivity {
 
             }
 
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 quantity = Float.parseFloat(currencyInput.getText().toString());
@@ -138,30 +143,29 @@ public class Currency extends AppCompatActivity {
                 CurrencyData data = asyncTask.get();
 
                 date.setText("Le " + data.getDate().format(DateTimeFormatter.ofPattern("dd/mm/yyyy")) + " à " + data.getDate().format(DateTimeFormatter.ofPattern("HH:mm:ss")));
-                currencyResult.setText(String.valueOf(data.getAmount()));
+                currencyValue.setText("1 " + currency1 + " = " + data.getTargets().getDouble(currency2) + " " + currency2);
+                currencyResult.setText(String.valueOf(data.getTargets().getDouble(currency2) * quantity));
 
-            } catch (ExecutionException | InterruptedException e) {
+            } catch (ExecutionException | InterruptedException | JSONException e) {
                 e.printStackTrace();
             }
         });
     }
 
     private URL createURL() {
-        String apiKey = "80eb01ac9dmsh14d4a229d5e843dp1d5546jsn6db9fded890b";
-        String url1 = "http://api.wahrungsrechner.org/v1/quotes/";
-        String url2 = "/json?qty=";
-        String url3 = "&key=";
-        String slash = "/";
+        String apiKey = "f34f3bde751141fe8b4083cb";
+        String url1 = "https://v6.exchangerate-api.com/v6/";
+        String url2 = "/latest/";
 
         try {
-            String urlString = url1 + URLEncoder.encode(currency1, "UTF-8") + slash + URLEncoder.encode(currency2, "UTF-8") +
-                    url2 + URLEncoder.encode(String.valueOf(quantity), "UTF-8") + url3 + apiKey;
+            String urlString = url1 + URLEncoder.encode(apiKey, "UTF-8") + url2 + URLEncoder.encode(currency1, "UTF-8");
+
             return new URL(urlString);
         }
         catch (Exception e) {
             e.printStackTrace();
         }
 
-        return null; // URL mal formée
+        return null; //Bad URL
     }
 }
