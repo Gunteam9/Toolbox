@@ -16,7 +16,7 @@ public class NoteList {
     public NoteList(Context context){
         listNote = new ArrayList<>();
         this.context = context.getApplicationContext();
-        db = new DbOpenHelper(this.context,"db",null,1);
+        db = DbOpenHelper.instance;
         SQLiteDatabase finDB = db.getReadableDatabase();
         Cursor cursor = finDB.query(DbOpenHelper.TABLE_NOTE, new String[]{DbOpenHelper.COLUMN_TITLE, DbOpenHelper.COLUMN_CONTENT}, null, null, null, null, null);
         try {
@@ -64,16 +64,16 @@ public class NoteList {
     public void modifyInList(String id, String title, String content){
         for (int i=0;i<listNote.size();++i) {
             Note n=listNote.get(i);
-            if (id.equals(n.getId())) {
+            if (id.equals(n.getTitle())) {
                 listNote.get(i).setTitle(title);
                 listNote.get(i).setContent(content);
                 //La suite fait planté l'appli lors d'une modif
-                //SQLiteDatabase actualdb = db.getWritableDatabase();
-                //ContentValues note =new ContentValues();
-                //note.put(DbOpenHelper.COLUMN_TITLE,title);
-               // note.put(DbOpenHelper.COLUMN_CONTENT,content);
-               // actualdb.update(DbOpenHelper.TABLE_NOTE, note,DbOpenHelper.COLUMN_ID+" = ?",new String[]{id});
-               // db.close();
+                SQLiteDatabase actualdb = db.getWritableDatabase();
+                ContentValues note =new ContentValues();
+                note.put(DbOpenHelper.COLUMN_TITLE,title);
+                note.put(DbOpenHelper.COLUMN_CONTENT,content);
+                actualdb.update(DbOpenHelper.TABLE_NOTE, note,DbOpenHelper.COLUMN_TITLE+" = ?",new String[]{id});
+                db.close();
             }
         }
     }

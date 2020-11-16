@@ -17,7 +17,6 @@ public class Notepad extends AppCompatActivity {
     private NoteAdaptater adapter;
     Note selectedNote;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,7 +62,7 @@ public class Notepad extends AppCompatActivity {
             Intent intent = new Intent(Notepad.this,EditNoteActivity.class);
             intent.putExtra("title",selectedNote.getTitle());
             intent.putExtra("content",selectedNote.getContent());
-            intent.putExtra("id",selectedNote.getId());
+            intent.putExtra("id",selectedNote.getTitle());
             startActivityForResult(intent,1);
         }
     }

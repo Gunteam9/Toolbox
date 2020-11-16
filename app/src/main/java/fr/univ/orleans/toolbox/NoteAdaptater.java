@@ -31,8 +31,6 @@ public class NoteAdaptater extends ArrayAdapter<Note> {
         String title = getItem(position).getTitle();
         String content = getItem(position).getContent();
 
-        //Note note = new Note(title,content);
-
         LayoutInflater inflater = LayoutInflater.from(context);
         convertView = inflater.inflate(ressource,parent,false);
 

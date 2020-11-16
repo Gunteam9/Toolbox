@@ -1,15 +1,11 @@
 package fr.univ.orleans.toolbox;
 
-import java.util.UUID;
-
 public class Note {
     private String title,content;
-    private String id;
 
     public Note(String title, String content){
         this.title = title;
         this.content = content;
-        id = UUID.randomUUID().toString();
     }
 
     public String getTitle() {
@@ -28,7 +24,4 @@ public class Note {
         this.content = content;
     }
 
-    public String getId() {
-        return id;
-    }
 }

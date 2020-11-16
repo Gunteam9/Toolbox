@@ -2,16 +2,24 @@ package fr.univ.orleans.toolbox;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static Context context;
+
+
+    public static Context getAppContext() {
+        return MainActivity.context;
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        MainActivity.context = getApplicationContext();
     }
 
     public void openFlashLight(View view) {
