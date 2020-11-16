@@ -3,8 +3,11 @@
     package="fr.univ.orleans.toolbox">
 
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <uses-feature android:name="android.hardware.camera" />
-    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
 
     <application
         android:allowBackup="true"
@@ -13,10 +16,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Currency"/>
         <activity android:name=".Notepad" />
-        <activity android:name=".Calculator" />
         <activity android:name=".Flashlight" />
-        <activity android:name=".CalculatriceActivity"></activity>
+        <activity android:name=".CalculatriceActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

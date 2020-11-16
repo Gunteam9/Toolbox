@@ -3,7 +3,7 @@
     <string name="flashlight">Flashlight</string>
     <string name="calculator">Calculator</string>
     <string name="notepad">Notepad</string>
-    <string name="flashlight_on" >Flashlight On</string>
+    <string name="flashlight_on">Flashlight On</string>
     <string name="blinkingSpeed">Blinking speed</string>
     <string name="back">Back</string>
     <string name="permission_granted">Permission granted</string>
@@ -29,4 +29,8 @@
     <string name="zero" translatable="false">0</string>
     <string name="dot" translatable="false">.</string>
     <string name="result" translatable="false">=</string>
+    <string name="currencyConverter" >Currency Converter</string>
+    <string name="swap">swap</string>
+    <string name="read_error" >Reading error</string>
+    <string name="connect_error" >Connection error</string>
 </resources>
