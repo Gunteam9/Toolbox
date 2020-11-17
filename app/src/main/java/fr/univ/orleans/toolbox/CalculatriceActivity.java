@@ -2,6 +2,8 @@ package fr.univ.orleans.toolbox;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -19,6 +21,7 @@ public class CalculatriceActivity extends AppCompatActivity {
     StringBuilder number;
     boolean hasDot;
     boolean hasOperator;
+    DbOpenHelper db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -211,7 +214,6 @@ public class CalculatriceActivity extends AppCompatActivity {
                 return;
             }
         }
-        affichage.setText(String.valueOf(res));
         number.setLength(0);
         number.append(0);
     }
