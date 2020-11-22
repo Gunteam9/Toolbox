@@ -19,7 +19,6 @@
         <activity android:name=".Currency"/>
         <activity android:name=".Notepad" />
         <activity android:name=".Flashlight" />
-        <activity android:name=".CalculatriceActivity"></activity>
         <activity android:name=".EditNoteActivity"/>
         <activity android:name=".CalculatriceActivity" />
         <activity android:name=".MainActivity">

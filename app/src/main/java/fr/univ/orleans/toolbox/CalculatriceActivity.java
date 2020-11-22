@@ -2,34 +2,54 @@ package fr.univ.orleans.toolbox;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
-
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
 import java.util.Stack;
 
 public class CalculatriceActivity extends AppCompatActivity {
 
+    TextView affHistorique;
     TextView affichage;
     StringBuilder number;
+    DbOpenHelper db;
+    int idHistorique;
     boolean hasDot;
     boolean hasOperator;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculatrice);
         affichage = (TextView) findViewById(R.id.affichage);
+        affHistorique = (TextView) findViewById(R.id.historique);
         number = new StringBuilder();
         number.append(0);
         hasDot = false;
         hasOperator = false;
+        idHistorique = 0;
+        db = DbOpenHelper.instance;
     }
+
+    /*public void fullscreenHistorique(View view)
+    {
+        System.out.println("Bonjour");
+        if(historiqueView.getHeight() != LinearLayout.LayoutParams.MATCH_PARENT)
+            historiqueView.setLayoutParams(new LinearLayout.LayoutParams(historiqueView.getWidth(), LinearLayout.LayoutParams.MATCH_PARENT));
+        else
+            historiqueView.setLayoutParams(new LinearLayout.LayoutParams(historiqueView.getWidth(), 50));
+    }*/
 
 
     /**
@@ -101,6 +121,7 @@ public class CalculatriceActivity extends AppCompatActivity {
 
     public void deleteOperation(View view)
     {
+        deleteDatabase();
         if(hasOperator)
             hasOperator = false;
 
@@ -110,6 +131,16 @@ public class CalculatriceActivity extends AppCompatActivity {
         number.setLength(0);
         number.append(0);
         affichage.setText("0");
+    }
+
+    private void deleteDatabase()
+    {
+        SQLiteDatabase historique = db.getWritableDatabase();
+        if(number.length() == 0)
+            historique.delete(DbOpenHelper.TABLE_OPERATIONS,null, null);
+        db.close();
+        affHistorique.setText("");
+
     }
 
     /**
@@ -124,10 +155,12 @@ public class CalculatriceActivity extends AppCompatActivity {
             return;
 
         for(int i = number.length() - 1; i >=0; i--)
-        {
             if(checkOperator(i))
+            {
                 index = i+1;
-        }
+                break;
+            }
+
 
         double percentage = Double.parseDouble(number.subSequence(index, number.length()).toString())/100;
         System.out.println(Double.parseDouble(number.subSequence(index, number.length()).toString()));
@@ -176,6 +209,7 @@ public class CalculatriceActivity extends AppCompatActivity {
                 val.append(0);
             else
             {
+                //Parsing en Double l'opérande
                 if(Character.isDigit(number.charAt(i)))
                 {
 
@@ -188,32 +222,49 @@ public class CalculatriceActivity extends AppCompatActivity {
                     i--;
                 }
             }
-
+            //Parsing en char l'opérateur
             if(checkOperator(i))
             {
                 if(!operators.empty() && ((number.charAt(i) == '+' || number.charAt(i) == '-')
                                         && operators.peek() == '*' || operators.peek() == '/'))
-                {
-                    res+= calcul(operandes.pop(), operandes.pop(), operators.pop());
-                }
+                   operandes.push(calcul(operandes.pop(), operandes.pop(), operators.pop()));
+                
                 operators.push(number.charAt(i));
             }
         }
 
-        while(!operandes.isEmpty())
+        while(!operators.isEmpty())
+            operandes.push(calcul(operandes.pop(), operandes.pop(), operators.pop()));
+
+        res+=operandes.pop();
+        if(res == -1)
         {
-            res+= calcul(operandes.pop(), operandes.pop(), operators.pop());
-            if(res == -1)
-            {
-                number.setLength(0);
-                number.append(0);
-                affichage.setText(R.string.divzero);
-                return;
-            }
+            number.setLength(0);
+            number.append(0);
+            affichage.setText(R.string.divzero);
+            return;
         }
-        affichage.setText(String.valueOf(res));
+        number.append(" = ").append(res);
+        this.addHistorique();
         number.setLength(0);
         number.append(0);
+    }
+
+    private void addHistorique()
+    {
+        SQLiteDatabase actualdb = db.getWritableDatabase();
+        ContentValues historique = new ContentValues();
+        historique.put(DbOpenHelper.COLUMN_OPERATION, number.toString());
+        actualdb.insert(DbOpenHelper.TABLE_OPERATIONS,null, historique);
+
+        try (Cursor cursor = actualdb.query(DbOpenHelper.TABLE_OPERATIONS, new String[]{DbOpenHelper.COLUMN_OPERATION}, null, null, null, null, null)) {
+            StringBuilder s = new StringBuilder();
+            while (cursor.moveToNext())
+                s.append(cursor.getString(0)).append("\n");
+            affHistorique.setText(s.toString());
+
+        }
+        db.close();
     }
 
     private double calcul(double value1, double value2, char ope)
