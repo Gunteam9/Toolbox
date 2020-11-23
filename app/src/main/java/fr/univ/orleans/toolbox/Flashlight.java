@@ -78,14 +78,11 @@ public class Flashlight extends AppCompatActivity implements SeekBar.OnSeekBarCh
                     timer = null;
                 }
                 try {
-                    System.out.println(blinkingSpeed);
                     if (isFlashlightOn) {
                         turnFlashlightOff();
-                        System.out.println("turn off");
                     }
                     else {
                         turnFlashlightOn();
-                        System.out.println("turn on");
                     }
                 } catch (CameraAccessException e) {
                     e.printStackTrace();

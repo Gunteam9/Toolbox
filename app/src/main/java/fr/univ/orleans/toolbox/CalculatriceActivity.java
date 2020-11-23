@@ -24,7 +24,6 @@ public class CalculatriceActivity extends AppCompatActivity {
     int idHistorique;
     boolean hasDot;
     boolean hasOperator;
-    DbOpenHelper db;
 
 
 

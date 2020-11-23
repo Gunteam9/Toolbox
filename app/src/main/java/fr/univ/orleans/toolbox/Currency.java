@@ -51,21 +51,27 @@ public class Currency extends AppCompatActivity {
         currencyValue = findViewById(R.id.currencyValue);
         currencyResult = findViewById(R.id.currencyResult);
 
+        //Get arrays from XML resources
         TypedArray imgsInt = getResources().obtainTypedArray(R.array.currenciesImg);
         final String[] texts = getResources().getStringArray(R.array.currenciesName);
 
+        //Convert img int into drawable
         Drawable[] imgs = new Drawable[imgsInt.length()];
         for (int i = 0; i < imgsInt.length(); i++)
             imgs[i] = imgsInt.getDrawable(i);
 
         imgsInt.recycle();
 
+        //Special spinner adapter for the flag and the text
         spinnerCurrency1.setAdapter(new SpinnerAdapter(this, imgs, texts));
         spinnerCurrency2.setAdapter(new SpinnerAdapter(this, imgs, texts));
 
+        //Default selection (EUR => USD)
         spinnerCurrency1.setSelection(1);
         spinnerCurrency2.setSelection(0);
 
+        //On click listener
+        //Get and store values
         spinnerCurrency1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
@@ -114,6 +120,11 @@ public class Currency extends AppCompatActivity {
 
     }
 
+
+    /**
+     * Swap the currencies
+     * @param view
+     */
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void swapCurrency(View view) {
         int index0 = spinnerCurrency1.getSelectedItemPosition();
@@ -123,35 +134,49 @@ public class Currency extends AppCompatActivity {
         apiRequest();
     }
 
+    /**
+     * Back to main activity
+     * @param view
+     */
     public void back(View view) {
         finish();
     }
 
+    /**
+     * Create the api request
+     */
     @SuppressLint("SetTextI18n")
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void apiRequest() {
         if (currencyInput.getText().toString().isEmpty())
             return;
 
+        //Create URL
         final URL url = createURL();
 
-
+        //Create Async request and set responses from api
         this.runOnUiThread(() -> {
             AsyncTask<URL, String, CurrencyData> asyncTask = new AsyncCurrencyRequest().execute(url);
 
             try {
                 CurrencyData data = asyncTask.get();
 
-                date.setText("Le " + data.getDate().format(DateTimeFormatter.ofPattern("dd/mm/yyyy")) + " à " + data.getDate().format(DateTimeFormatter.ofPattern("HH:mm:ss")));
-                currencyValue.setText("1 " + currency1 + " = " + data.getTargets().getDouble(currency2) + " " + currency2);
-                currencyResult.setText(String.valueOf(data.getTargets().getDouble(currency2) * quantity));
-
+                if (data != null)
+                {
+                    date.setText("Le " + data.getDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) + " à " + data.getDate().format(DateTimeFormatter.ofPattern("HH:mm:ss")));
+                    currencyValue.setText("1 " + currency1 + " = " + data.getTargets().getDouble(currency2) + " " + currency2);
+                    currencyResult.setText(String.valueOf(data.getTargets().getDouble(currency2) * quantity));
+                }
             } catch (ExecutionException | InterruptedException | JSONException e) {
                 e.printStackTrace();
             }
         });
     }
 
+    /**
+     * Create the URL for the api request
+     * @return
+     */
     private URL createURL() {
         String apiKey = "f34f3bde751141fe8b4083cb";
         String url1 = "https://v6.exchangerate-api.com/v6/";

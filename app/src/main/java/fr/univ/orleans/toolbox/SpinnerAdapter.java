@@ -14,6 +14,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+/**
+ * Create a spinner adapter with images and texts for each elements
+ */
 public class SpinnerAdapter extends ArrayAdapter<String> {
 
     private Context context;
