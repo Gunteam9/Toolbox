@@ -11,26 +11,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5181d25c-c7f2-4b0c-a6f3-cf7c42bbb00b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/fr/univ/orleans/toolbox/AsyncCurrencyRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/fr/univ/orleans/toolbox/AsyncCurrencyRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/fr/univ/orleans/toolbox/CalculatriceActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/fr/univ/orleans/toolbox/CalculatriceActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/fr/univ/orleans/toolbox/Currency.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/fr/univ/orleans/toolbox/Currency.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/fr/univ/orleans/toolbox/Flashlight.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/fr/univ/orleans/toolbox/Flashlight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values-fr/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values-fr/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -194,29 +180,33 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/-1360.130.1360.768@0.0.1920.1040" timestamp="1606135192451" />
+    <state x="818" y="332" key="AndroidCreateXmlResourceDialog" timestamp="1606221593394">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="818" y="332" key="AndroidCreateXmlResourceDialog/0.0.1920.1040/-1360.130.1360.768@0.0.1920.1040" timestamp="1606221593394" />
     <state x="740" y="261" key="FileChooserDialogImpl" timestamp="1605565457011">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="261" key="FileChooserDialogImpl/0.0.1920.1040/-1360.130.1360.768@0.0.1920.1040" timestamp="1605565457011" />
-    <state width="938" height="281" key="GridCell.Tab.0.bottom" timestamp="1606138225166">
+    <state width="938" height="281" key="GridCell.Tab.0.bottom" timestamp="1606221684412">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="938" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1360.130.1360.768@0.0.1920.1040" timestamp="1606138225166" />
+    <state width="938" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1360.130.1360.768@0.0.1920.1040" timestamp="1606221684412" />
     <state width="1877" height="266" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1606065274341" />
-    <state width="938" height="281" key="GridCell.Tab.0.center" timestamp="1606138225166">
+    <state width="938" height="281" key="GridCell.Tab.0.center" timestamp="1606221684412">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="938" height="281" key="GridCell.Tab.0.center/0.0.1920.1040/-1360.130.1360.768@0.0.1920.1040" timestamp="1606138225166" />
+    <state width="938" height="281" key="GridCell.Tab.0.center/0.0.1920.1040/-1360.130.1360.768@0.0.1920.1040" timestamp="1606221684412" />
     <state width="1877" height="266" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1606065274341" />
-    <state width="938" height="281" key="GridCell.Tab.0.left" timestamp="1606138225166">
+    <state width="938" height="281" key="GridCell.Tab.0.left" timestamp="1606221684412">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="938" height="281" key="GridCell.Tab.0.left/0.0.1920.1040/-1360.130.1360.768@0.0.1920.1040" timestamp="1606138225166" />
+    <state width="938" height="281" key="GridCell.Tab.0.left/0.0.1920.1040/-1360.130.1360.768@0.0.1920.1040" timestamp="1606221684412" />
     <state width="1877" height="266" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1606065274341" />
-    <state width="938" height="281" key="GridCell.Tab.0.right" timestamp="1606138225166">
+    <state width="938" height="281" key="GridCell.Tab.0.right" timestamp="1606221684412">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="938" height="281" key="GridCell.Tab.0.right/0.0.1920.1040/-1360.130.1360.768@0.0.1920.1040" timestamp="1606138225166" />
+    <state width="938" height="281" key="GridCell.Tab.0.right/0.0.1920.1040/-1360.130.1360.768@0.0.1920.1040" timestamp="1606221684412" />
     <state width="1877" height="266" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1606065274341" />
     <state x="2576" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1606041578765">
       <screen x="1920" y="0" width="1920" height="1040" />

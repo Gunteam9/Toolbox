@@ -109,8 +109,10 @@ public class Currency extends AppCompatActivity {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                quantity = Float.parseFloat(currencyInput.getText().toString());
-                apiRequest();
+                if (!currencyInput.getText().toString().isEmpty()) {
+                    quantity = Float.parseFloat(currencyInput.getText().toString());
+                    apiRequest();
+                }
             }
 
             @Override

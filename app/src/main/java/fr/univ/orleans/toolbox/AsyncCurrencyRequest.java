@@ -30,6 +30,7 @@ public class AsyncCurrencyRequest extends AsyncTask<URL, String, CurrencyData> {
     //If there are errors during the request
     private boolean errorInReading;
     private boolean connectionError;
+    private boolean otherError;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -64,6 +65,9 @@ public class AsyncCurrencyRequest extends AsyncTask<URL, String, CurrencyData> {
         } catch (JSONException | IOException e) {
             e.printStackTrace();
             errorInReading = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            otherError = true;
         } finally {
             if (connection != null) {
                 connection.disconnect();
@@ -83,6 +87,10 @@ public class AsyncCurrencyRequest extends AsyncTask<URL, String, CurrencyData> {
         if (errorInReading) {
             Toast.makeText(MainActivity.getAppContext(), R.string.read_error, Toast.LENGTH_LONG).show();
             return;
+        }
+
+        if (otherError) {
+            Toast.makeText(MainActivity.getAppContext(), R.string.unknownError, Toast.LENGTH_LONG).show();
         }
 
     }
