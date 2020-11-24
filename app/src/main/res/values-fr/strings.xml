@@ -27,4 +27,14 @@
     <string name="connect_error" >Erreur de connexion</string>
     <string name="api_error" >Erreur lors de la récupération des données</string>
     <string name="unknownError" >Une erreur inatendue est survenue</string>
+    <string name="coronavirus">Coronavirus</string>
+    <string name="cas_confirmes">Cas confirmés</string>
+    <string name="deces">Décès</string>
+    <string name="deces_ehpad">Décès en EHPAD</string>
+    <string name="total_hospitalises">Total d\'hospitalisés</string>
+    <string name="nouvelles_hospitalisations">Nouvelles hospitalisations</string>
+    <string name="total_reanimation">Total en réanimation</string>
+    <string name="nouvelles_reanimations">Nouvelles réanimations</string>
+    <string name="gueris">Guéris</string>
+
 </resources>

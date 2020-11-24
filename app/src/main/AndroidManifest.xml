@@ -15,11 +15,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Currency"/>
+        <activity android:name=".CoronavirusActivity"></activity>
+        <activity android:name=".Currency" />
         <activity android:name=".Notepad" />
         <activity android:name=".Flashlight" />
-        <activity android:name=".CalculatriceActivity"/>
-        <activity android:name=".EditNoteActivity"/>
+        <activity android:name=".EditNoteActivity" />
+        <activity android:name=".CalculatriceActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
