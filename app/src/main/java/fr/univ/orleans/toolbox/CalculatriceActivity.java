@@ -21,7 +21,6 @@ public class CalculatriceActivity extends AppCompatActivity {
     TextView affichage;
     StringBuilder number;
     DbOpenHelper db;
-    int idHistorique;
     boolean hasDot;
     boolean hasOperator;
 
@@ -38,19 +37,8 @@ public class CalculatriceActivity extends AppCompatActivity {
         number.append(0);
         hasDot = false;
         hasOperator = false;
-        idHistorique = 0;
         db = DbOpenHelper.instance;
     }
-
-    /*public void fullscreenHistorique(View view)
-    {
-        System.out.println("Bonjour");
-        if(historiqueView.getHeight() != LinearLayout.LayoutParams.MATCH_PARENT)
-            historiqueView.setLayoutParams(new LinearLayout.LayoutParams(historiqueView.getWidth(), LinearLayout.LayoutParams.MATCH_PARENT));
-        else
-            historiqueView.setLayoutParams(new LinearLayout.LayoutParams(historiqueView.getWidth(), 50));
-    }*/
-
 
     /**
      * Fonction ajoutant un opérateur ou un point lorsqu'on appuie sur une de ces touches
@@ -140,7 +128,6 @@ public class CalculatriceActivity extends AppCompatActivity {
             historique.delete(DbOpenHelper.TABLE_OPERATIONS,null, null);
         db.close();
         affHistorique.setText("");
-
     }
 
     /**

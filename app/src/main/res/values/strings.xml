@@ -37,9 +37,18 @@
     <string name="hintcontent">Content</string>
     <string name="modify">Modify</string>
     <string name="divzero">impossible to divide by zero</string>
-    <string name="currencyConverter" >Currency Converter</string>
+    <string name="currencyConverter">Currency Converter</string>
     <string name="swap">swap</string>
-    <string name="read_error" >Reading error</string>
-    <string name="connect_error" >Connection error</string>
-    <string name="api_error" >Error on receiving data</string>
+    <string name="read_error">Reading error</string>
+    <string name="connect_error">Connection error</string>
+    <string name="api_error">Error on receiving data</string>
+    <string name="coronavirus">Coronavirus</string>
+    <string name="cas_confirmes">Total cases</string>
+    <string name="deces">Deaths</string>
+    <string name="deces_ehpad">EHPAD Deaths</string>
+    <string name="total_hospitalises">Serious cases</string>
+    <string name="nouvelles_hospitalisations">New serious cases</string>
+    <string name="total_reanimation">Critical cases</string>
+    <string name="nouvelles_reanimations">New critical cases</string>
+    <string name="gueris">Recovered</string>
 </resources>
