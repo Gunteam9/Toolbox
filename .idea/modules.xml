@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Toolbox.iml" filepath="$PROJECT_DIR$/.idea/modules/Toolbox.iml" group="Toolbox" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Toolbox-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Toolbox-app.iml" group="Toolbox/app" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="Toolbox/app" />
     </modules>
   </component>
