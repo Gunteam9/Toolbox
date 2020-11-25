@@ -19,6 +19,7 @@
         <activity android:name=".Notepad" />
         <activity android:name=".Flashlight" />
         <activity android:name=".CalculatriceActivity"/>
+        <activity android:name=".ClockActivity"/>
         <activity android:name=".EditNoteActivity"/>
         <activity android:name=".MainActivity">
             <intent-filter>
