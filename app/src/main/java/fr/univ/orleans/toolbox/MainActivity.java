@@ -42,4 +42,5 @@ public class MainActivity extends AppCompatActivity {
     public void openCurrency(View view) { startActivity(new Intent(this, Currency.class));}
 
     public void openCoronavirus(View view) { startActivity(new Intent(this, CoronavirusActivity.class));}
+    public void openClock(View view) { startActivity(new Intent(this,ClockActivity.class));}
 }
