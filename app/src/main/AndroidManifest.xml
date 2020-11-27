@@ -18,10 +18,10 @@
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-9040209522514641~4928580823"/>
-        <activity android:name=".CoronavirusActivity"></activity>
+        <activity android:name=".CoronavirusActivity"/>
         <activity android:name=".Currency" />
         <activity android:name=".Notepad" />
-        <activity android:name=".Flashlight" />
+        <activity android:name=".Flashlight"/>
         <activity android:name=".CalculatriceActivity"/>
         <activity android:name=".ClockActivity"
             android:screenOrientation="locked"/>

@@ -1,9 +1,13 @@
 package fr.univ.orleans.toolbox;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 
@@ -14,13 +18,18 @@ import com.google.android.gms.ads.MobileAds;
 public class MainActivity extends AppCompatActivity {
 
     private static Context context;
+    private Intent flashLightIntent;
+    private int flashLightBlinkingSpeed;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        MobileAds.initialize(this);
         context = getApplicationContext();
+
+        flashLightIntent = new Intent(this, Flashlight.class);
+
+        MobileAds.initialize(this);
         AdView ad = (AdView)findViewById(R.id.admain);
         AdRequest adRequest = new AdRequest.Builder().build();
         ad.loadAd(adRequest);
@@ -33,8 +42,19 @@ public class MainActivity extends AppCompatActivity {
      * @author Romain
      */
     public void openFlashLight(View view) {
-        startActivity(new Intent(this, Flashlight.class));
+        startActivityForResult(flashLightIntent, Flashlight.REQUEST_CODE_INTENT);
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (data != null) {
+            if (requestCode == Flashlight.REQUEST_CODE_INTENT)
+                flashLightIntent = data;
+        }
+    }
+
     /**
      * @author Samir
      */
