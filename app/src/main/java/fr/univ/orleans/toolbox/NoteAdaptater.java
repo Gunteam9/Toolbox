@@ -13,7 +13,7 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 
 /**
- * An adaptater that allow a good display of our note
+ * un adaptateur qui permet l'affichage des note dans la listeview
  */
 public class NoteAdaptater extends ArrayAdapter<Note> {
     private Context context;

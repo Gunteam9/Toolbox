@@ -4,14 +4,13 @@ import android.content.Context;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
+
 
 import androidx.annotation.Nullable;
 
 public class DbOpenHelper extends SQLiteOpenHelper {
     public static final String TABLE_NOTE="note";
     public static final String TABLE_OPERATIONS="operations";
-    //rajouter les string pour la calculatrice
     public static final String COLUMN_OPERATION="operation";
     public static final String COLUMN_ID="id";
     public static final String COLUMN_TITLE="title";

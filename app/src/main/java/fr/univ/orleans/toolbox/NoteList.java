@@ -4,7 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
+
 
 import java.util.ArrayList;
 
@@ -31,7 +31,7 @@ public class NoteList {
     }
 
     /**
-     * Method that add a note in the note list
+     * Méthode qui permet d'ajouter une note
      */
     public void addInList(String title, String content){
         listNote.add(new Note(title,content));
@@ -44,7 +44,7 @@ public class NoteList {
     }
 
     /**
-     * Method that remove a note in the note list (with the title)
+     * Méthode qui permet de supprimer une note (à partir de son titre)
      */
     public void removeInList(String title){
         for (int i=0;i<listNote.size();++i) {
@@ -59,7 +59,7 @@ public class NoteList {
     }
 
     /**
-     * Method that modify the selected note
+     * Méthode qui permet de modifier une note (à partir de son titre)
      */
     public void modifyInList(String id, String title, String content){
         for (int i=0;i<listNote.size();++i) {
@@ -67,7 +67,6 @@ public class NoteList {
             if (id.equals(n.getTitle())) {
                 listNote.get(i).setTitle(title);
                 listNote.get(i).setContent(content);
-                //La suite fait planté l'appli lors d'une modif
                 SQLiteDatabase actualdb = db.getWritableDatabase();
                 ContentValues note =new ContentValues();
                 note.put(DbOpenHelper.COLUMN_TITLE,title);
@@ -82,6 +81,9 @@ public class NoteList {
         return listNote;
     }
 
+    /**
+     * Méthode qui permet de récuperer une note
+     */
     public Note get(int i){
         if(i < 0 || i >= listNote.size()){
             return null;

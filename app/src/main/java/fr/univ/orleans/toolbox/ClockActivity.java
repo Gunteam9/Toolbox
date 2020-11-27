@@ -1,7 +1,7 @@
 package fr.univ.orleans.toolbox;
 
 import android.os.Bundle;
-import android.view.View;
+
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;

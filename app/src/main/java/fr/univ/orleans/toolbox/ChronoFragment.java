@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment;
 
 public class ChronoFragment extends Fragment {
 
+    //Le chrono de base n'affiche pas les millisecondes
     private Chronometer chronometer;
     private boolean active;
     private long wait;
@@ -52,6 +53,9 @@ public class ChronoFragment extends Fragment {
         return view;
     }
 
+    /**
+     * Méthode qui permet de démarrer le chrono
+     */
     public void startChrono(View view){
         if (!active){
             chronometer.setBase(SystemClock.elapsedRealtime() - wait);
@@ -60,6 +64,9 @@ public class ChronoFragment extends Fragment {
         }
     }
 
+    /**
+     * Méthode qui permet de suspendre le chrono
+     */
     public void pauseChrono(View view){
         if(active){
             chronometer.stop();
@@ -68,6 +75,9 @@ public class ChronoFragment extends Fragment {
         }
     }
 
+    /**
+     * Méthode qui permet de réinitialiser le chrono
+     */
     public void restartChrono(View view){
         chronometer.stop();
         chronometer.setBase(SystemClock.elapsedRealtime());

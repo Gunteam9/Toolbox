@@ -71,6 +71,9 @@ public class CountdownFragment extends Fragment {
         return view;
     }
 
+    /**
+     * Méthode qui démarre le minuteur
+     */
     public void startCount(View view){
         if (!countactive){
             countdown = new CountDownTimer(left,1) {
@@ -88,6 +91,9 @@ public class CountdownFragment extends Fragment {
         }
     }
 
+    /**
+     * Méthode qui suspend le temps du minuteur
+     */
     public void pauseCount(View view){
         if (countdown == null){
             startCount(view);
@@ -99,15 +105,23 @@ public class CountdownFragment extends Fragment {
         }
     }
 
+    /**
+     * Méthode qui réinitialise le minuteur, uniquement s'il est en pause
+     */
     public void restartCount(View view){
-        if (countdown == null){
-            startCount(view);
-            pauseCount(view);
+        if(!countactive) {
+            if (countdown == null) {
+                startCount(view);
+                pauseCount(view);
+            }
+            left = durationmili;
+            countupdate(view);
         }
-        left = durationmili;
-        countupdate(view);
     }
 
+    /**
+     * Méthode qui actualise l'affichage du minuteur
+     */
     public void countupdate(View view){
         long min = (long) left / 1000 /60;
         long sec = (long) left / 1000 % 60;
@@ -115,6 +129,10 @@ public class CountdownFragment extends Fragment {
         text.setText(time);
     }
 
+    /**
+     * Méthode qui permet de modifier la durée du minuteur
+     * @param durationmili la durée choisie par l'utilisateur dans l'edit text correspondant
+     */
     public void setduration(View view, long durationmili){
         if(!countactive){
             this.durationmili = durationmili;

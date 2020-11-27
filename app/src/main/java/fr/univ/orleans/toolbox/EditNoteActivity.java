@@ -45,7 +45,7 @@ public class EditNoteActivity extends AppCompatActivity {
     }
 
     /**
-     * Method that validate the actual note (that allow to create a new note or modify an existing note)
+     * Méthode qui valide la note (qui permet d'en créer une nouvelle ou d'en modifier une)
      */
     public void validateNote(View view){
         if (id == null){
@@ -66,13 +66,5 @@ public class EditNoteActivity extends AppCompatActivity {
             setResult(1,result);
             finish();
         }
-    }
-
-    /**
-     * Back to home menu
-     */
-    // le back de flashlight est utilisé à la place
-    public void back(View view) {
-        finish();
     }
 }
