@@ -19,8 +19,9 @@
         <activity android:name=".Currency" />
         <activity android:name=".Notepad" />
         <activity android:name=".Flashlight" />
-        <activity android:name=".EditNoteActivity" />
-        <activity android:name=".CalculatriceActivity" />
+        <activity android:name=".CalculatriceActivity"/>
+        <activity android:name=".ClockActivity"/>
+        <activity android:name=".EditNoteActivity"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

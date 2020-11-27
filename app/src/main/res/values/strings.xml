@@ -39,13 +39,7 @@
     <string name="divzero">impossible to divide by zero</string>
     <string name="currencyConverter">Currency Converter</string>
     <string name="swap">swap</string>
-    <string name="read_error" >Reading error</string>
-    <string name="connect_error" >Connection error</string>
-    <string name="api_error" >Error on receiving data</string>
     <string name="unknownError" >An unknown error occurred</string>
-    <string name="read_error">Reading error</string>
-    <string name="connect_error">Connection error</string>
-    <string name="api_error">Error on receiving data</string>
     <string name="coronavirus">Coronavirus</string>
     <string name="cas_confirmes">Total cases</string>
     <string name="deces">Deaths</string>
@@ -55,4 +49,14 @@
     <string name="total_reanimation">Critical cases</string>
     <string name="nouvelles_reanimations">New critical cases</string>
     <string name="gueris">Recovered</string>
+    <string name="read_error">Reading error</string>
+    <string name="connect_error">Connection error</string>
+    <string name="api_error">Error on receiving data</string>
+    <string name="chrono">Chrono</string>
+    <string name="countdown">Countdown</string>
+    <string name="chronostart">Start</string>
+    <string name="chronopause">Pause</string>
+    <string name="chronorestart">Restart</string>
+    <string name="set">Set</string>
+    <string name="clock">Clock</string>
 </resources>

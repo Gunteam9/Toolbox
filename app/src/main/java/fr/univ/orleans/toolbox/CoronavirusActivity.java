@@ -77,21 +77,23 @@ public class CoronavirusActivity extends AppCompatActivity {
 
             try {
                 CoronavirusData data = asyncTask.get();
-                List<BarEntry> dataDuJour = fillDatas(data);
-                LocalDate aujourdhui = data.getDate();
+                if(data!=null)
+                {
+                    List<BarEntry> dataDuJour = fillDatas(data);
+                    LocalDate aujourdhui = data.getDate();
 
-                BarDataSet set = new BarDataSet(dataDuJour, aujourdhui.toString());
-                set.setColors(ColorTemplate.MATERIAL_COLORS); //remplit chaque barre d'une couleur différente
-                set.setValueTextColor(Color.BLACK); // met le texte en noir
-                set.setValueTextSize(8f); //taille du texte
+                    BarDataSet set = new BarDataSet(dataDuJour, aujourdhui.toString());
+                    set.setColors(ColorTemplate.MATERIAL_COLORS); //remplit chaque barre d'une couleur différente
+                    set.setValueTextColor(Color.BLACK); // met le texte en noir
+                    set.setValueTextSize(8f); //taille du texte
 
-                BarData barData = new BarData(set);
-                float barWidth = 0.6f; //la taille de chaque barre
-                barData.setBarWidth(barWidth);
+                    BarData barData = new BarData(set);
+                    float barWidth = 0.6f; //la taille de chaque barre
+                    barData.setBarWidth(barWidth);
 
-                barChart.setData(barData);
-                barChartConfiguration();
-
+                    barChart.setData(barData);
+                    barChartConfiguration();
+                }
             } catch (ExecutionException | InterruptedException | JSONException e) {
                 e.printStackTrace();
             }
@@ -109,13 +111,13 @@ public class CoronavirusActivity extends AppCompatActivity {
 
         List<BarEntry> dataDuJour = new ArrayList<>();
         dataDuJour.add(new BarEntry(0f, (float) data.getData().getInt(CAS_CONFIRMES)));
-        dataDuJour.add(new BarEntry(1f, (float) data.getData().getInt(DECES)));
-        dataDuJour.add(new BarEntry(2f, (float) data.getData().getInt(DECES_EHPAD)));
-        dataDuJour.add(new BarEntry(3f, (float) data.getData().getInt(HOSPITALISES)));
-        dataDuJour.add(new BarEntry(4f, (float) data.getData().getInt(NOUVELLES_HOSPITALISATIONS)));
-        dataDuJour.add(new BarEntry(5f, (float) data.getData().getInt(REANIMATION)));
-        dataDuJour.add(new BarEntry(6f, (float) data.getData().getInt(NOUVELLES_REANIMATIONS)));
-        dataDuJour.add(new BarEntry(7f, (float) data.getData().getInt(GUERIS)));
+        dataDuJour.add(new BarEntry(1f, (float) data.getData().getInt(GUERIS)));
+        dataDuJour.add(new BarEntry(2f, (float) data.getData().getInt(DECES)));
+        dataDuJour.add(new BarEntry(3f, (float) data.getData().getInt(DECES_EHPAD)));
+        dataDuJour.add(new BarEntry(4f, (float) data.getData().getInt(HOSPITALISES)));
+        dataDuJour.add(new BarEntry(5f, (float) data.getData().getInt(NOUVELLES_HOSPITALISATIONS)));
+        dataDuJour.add(new BarEntry(6f, (float) data.getData().getInt(REANIMATION)));
+        dataDuJour.add(new BarEntry(7f, (float) data.getData().getInt(NOUVELLES_REANIMATIONS)));
 
         return dataDuJour;
     }
@@ -147,8 +149,6 @@ public class CoronavirusActivity extends AppCompatActivity {
     public void barChartConfiguration()
     {
         barChart.setFitBars(true);
-        barChart.getDescription().setText("Test");
-
         XAxis xAxis = barChart.getXAxis();
         xAxis.setValueFormatter(new ValueFormatter() {
             @Override

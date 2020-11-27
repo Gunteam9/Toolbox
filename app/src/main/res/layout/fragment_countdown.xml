@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="tabview.PlaceholderFragment">
+
+    <TextView
+        android:id="@+id/countdown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="00:00"
+        android:textSize="40dp"
+        android:layout_marginBottom="20dp"/>
+
+    <Button
+        android:id="@+id/buttoncountstart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/chronostart"
+        android:onClick="startCount"/>
+    <Button
+        android:id="@+id/buttoncountpause"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/chronopause"
+        android:onClick="pauseCount"/>
+    <Button
+        android:id="@+id/buttoncountrestart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/chronorestart"
+        android:onClick="restartCount"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/settime"
+            android:inputType="number"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="minutes"
+            android:maxLength="3"
+            android:textSize="20sp"
+            />
+
+        <Button
+            android:id="@+id/buttonset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/set"
+            android:layout_marginStart="10dp"
+            android:onClick="setcount"/>
+    </LinearLayout>
+
+
+</LinearLayout>

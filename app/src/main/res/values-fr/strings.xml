@@ -36,5 +36,11 @@
     <string name="total_reanimation">Total en réanimation</string>
     <string name="nouvelles_reanimations">Nouvelles réanimations</string>
     <string name="gueris">Guéris</string>
-
+    <string name="chrono">Chrono</string>
+    <string name="countdown">Compte à rebours</string>
+    <string name="chronostart">Start</string>
+    <string name="chronopause">Pause</string>
+    <string name="chronorestart">Redémarrer</string>
+    <string name="set">Fixer</string>
+    <string name="clock">Horloge</string>
 </resources>
