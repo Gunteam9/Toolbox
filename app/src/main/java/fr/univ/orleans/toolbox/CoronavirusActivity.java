@@ -52,7 +52,7 @@ public class CoronavirusActivity extends AppCompatActivity {
 
     /**
      * Fonction qui transforme la chaîne de caractères contenant l'URL en URL
-     * @return
+     * @return l'URL créée
      */
     private URL createURL()  {
         try{
@@ -102,9 +102,9 @@ public class CoronavirusActivity extends AppCompatActivity {
 
     /**
      * Remplis la liste des chiffres essentiels collectés dans le JSON
-     * @param data
-     * @return
-     * @throws JSONException
+     * @param data la data
+     * @return la liste remplie
+     * @throws JSONException si le JSONObject n'est pas valide
      */
 
     private List<BarEntry> fillDatas(CoronavirusData data) throws JSONException {
@@ -124,7 +124,7 @@ public class CoronavirusActivity extends AppCompatActivity {
 
     /**
      * Fonction qui donne un nom à chaque barre correspondante
-     * @return
+     * @return la liste remplie
      */
 
     private ArrayList<String> fillLabels()

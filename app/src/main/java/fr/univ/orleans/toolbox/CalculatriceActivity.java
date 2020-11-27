@@ -31,8 +31,8 @@ public class CalculatriceActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculatrice);
-        affichage = (TextView) findViewById(R.id.affichage);
-        affHistorique = (TextView) findViewById(R.id.historique);
+        affichage = findViewById(R.id.affichage);
+        affHistorique = findViewById(R.id.historique);
         number = new StringBuilder();
         number.append(0);
         hasDot = false;
@@ -42,7 +42,7 @@ public class CalculatriceActivity extends AppCompatActivity {
 
     /**
      * Fonction ajoutant un opérateur ou un point lorsqu'on appuie sur une de ces touches
-     * @param view
+     * @param view La view
      */
     public void addOpe(View view)
     {
@@ -67,7 +67,7 @@ public class CalculatriceActivity extends AppCompatActivity {
 
     /**
      * Méthode ajoutant un chiffre lorsqu'on appuie sur un des boutons d'un chiffre
-     * @param view
+     * @param view La view
      */
 
     public void addDigit(View view)
@@ -81,7 +81,7 @@ public class CalculatriceActivity extends AppCompatActivity {
 
     /**
      * Supprime le dernier chiffre (ou le symbole .) lorsqu'on appuie sur la touche DEL
-     * @param view
+     * @param view La view
      */
 
     public void deleteDigit(View view)
@@ -104,7 +104,7 @@ public class CalculatriceActivity extends AppCompatActivity {
 
     /**
      * Méthode qui supprime l'opération lorsqu'on appuie sur la touche CLEAR
-     * @param view
+     * @param view La view
      */
 
     public void deleteOperation(View view)
@@ -132,7 +132,7 @@ public class CalculatriceActivity extends AppCompatActivity {
 
     /**
      * Méthode gérant
-     * @param view
+     * @param view La view
      */
 
     public void calculPourcentage(View view)
@@ -159,7 +159,7 @@ public class CalculatriceActivity extends AppCompatActivity {
 
     /**
      * Méthode calculant l'opération en transformant le StringBuilder en deux Stack et en prenant en compte l'ordre de priorité des opérations
-     * @param view
+     * @param view La view
      */
 
     public void resultat(View view)
@@ -168,9 +168,7 @@ public class CalculatriceActivity extends AppCompatActivity {
         Stack<Double> operandes = new Stack<>();
         Stack<Character> operators = new Stack<>();
 
-        /**
-         * Si la 1re touche appuyée est la touche "="
-         */
+       //Si la 1re touche appuyée est la touche "="
         if (number.length() == 0)
             return;
 
@@ -212,8 +210,7 @@ public class CalculatriceActivity extends AppCompatActivity {
             //Parsing en char l'opérateur
             if(checkOperator(i))
             {
-                if(!operators.empty() && ((number.charAt(i) == '+' || number.charAt(i) == '-')
-                                        && operators.peek() == '*' || operators.peek() == '/'))
+                if(!operators.empty() && ((number.charAt(i) != '*' && number.charAt(i) != '/') || (operators.peek() != '+' && operators.peek() != '-')))
                    operandes.push(calcul(operandes.pop(), operandes.pop(), operators.pop()));
                 
                 operators.push(number.charAt(i));
@@ -221,7 +218,12 @@ public class CalculatriceActivity extends AppCompatActivity {
         }
 
         while(!operators.isEmpty())
+        {
             operandes.push(calcul(operandes.pop(), operandes.pop(), operators.pop()));
+            System.out.println(operandes.toString());
+            System.out.println(operators.toString());
+        }
+
 
         res+=operandes.pop();
         if(res == -1)
@@ -236,6 +238,10 @@ public class CalculatriceActivity extends AppCompatActivity {
         number.setLength(0);
         number.append(0);
     }
+
+    /**
+     * Fonction qui ajoute l'opération calculée dans la base de données
+     */
 
     private void addHistorique()
     {
@@ -253,6 +259,14 @@ public class CalculatriceActivity extends AppCompatActivity {
         }
         db.close();
     }
+
+    /**
+     * Fonction s'occupant d'effectuer une opération
+     * @param value1 La première valeur
+     * @param value2 La seconde valeur
+     * @param ope L'opérateur
+     * @return le résultat
+     */
 
     private double calcul(double value1, double value2, char ope)
     {
@@ -279,6 +293,12 @@ public class CalculatriceActivity extends AppCompatActivity {
         }
         return res;
     }
+
+    /**
+     * Méthode qui vérifie s'il y a un opérateur à l'index i
+     * @param index l'index dans le stringbuilder
+     * @return vrai s'il y en a un, faux sinon
+     */
 
     private boolean checkOperator(int index)
     {

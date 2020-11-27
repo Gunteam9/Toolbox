@@ -93,8 +93,8 @@ public class AsyncCoronavirusRequest extends AsyncTask<URL, String, CoronavirusD
 
     /**
      * Découpe le JSSONObject en ne prenant pas les données non essentielles
-     * @param jsonObject
-     * @return
+     * @param jsonObject l'objet
+     * @return le fractionnement des données importantes (date et le reste des données qui seront utilisées)
      */
     @RequiresApi(api = Build.VERSION_CODES.O)
     private CoronavirusData transformData(JSONObject jsonObject) {
