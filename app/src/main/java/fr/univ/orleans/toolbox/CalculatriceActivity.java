@@ -221,11 +221,7 @@ public class CalculatriceActivity extends AppCompatActivity {
         }
 
         while(!operators.isEmpty())
-        {
             operandes.push(calcul(operandes.pop(), operandes.pop(), operators.pop()));
-            System.out.println(operandes.toString());
-            System.out.println(operators.toString());
-        }
 
 
         res+=operandes.pop();
