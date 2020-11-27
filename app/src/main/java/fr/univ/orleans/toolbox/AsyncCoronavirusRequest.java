@@ -17,18 +17,23 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.UnknownHostException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class AsyncCoronavirusRequest extends AsyncTask<URL, String, CoronavirusData> {
+    //If there are errors during the request
+    private boolean errorInReading;
+    private boolean connectionError;
+    private boolean otherError;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected CoronavirusData doInBackground(URL... urls) {
         HttpURLConnection connection = null;
 
-        try{
+        try {
             connection = (HttpURLConnection) urls[0].openConnection();
             int response = connection.getResponseCode();
 
@@ -41,28 +46,48 @@ public class AsyncCoronavirusRequest extends AsyncTask<URL, String, CoronavirusD
                     while ((line = reader.readLine()) != null) {
                         builder.append(line);
                     }
-                }
-                catch (IOException e) {
-                    //Like runOnUiThread
-                    new Handler(Looper.getMainLooper()).post(() -> Toast.makeText(MainActivity.getAppContext(), R.string.read_error, Toast.LENGTH_LONG).show());
+                } catch (IOException e) {
                     e.printStackTrace();
+                    errorInReading = true;
                 }
+
                 return transformData(new JSONObject(builder.toString()));
             }
-            else {
-                new Handler(Looper.getMainLooper()).post(() -> Toast.makeText(MainActivity.getAppContext(), R.string.connect_error, Toast.LENGTH_LONG).show());
-            }
-        }
-        catch (Exception e) {
-            new Handler(Looper.getMainLooper()).post(() -> Toast.makeText(MainActivity.getAppContext(), R.string.read_error, Toast.LENGTH_LONG).show());
+            else
+                connectionError = true;
+        } catch (UnknownHostException e) {
             e.printStackTrace();
-        }
-        finally {
+            connectionError = true;
+        } catch (JSONException | IOException e) {
+            e.printStackTrace();
+            errorInReading = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            otherError = true;
+        } finally {
             if (connection != null) {
                 connection.disconnect();
             }
         }
+
         return null;
+    }
+
+    //Print error with priority
+    @Override
+    protected void onPostExecute(CoronavirusData currencyData) {
+        if (connectionError) {
+            Toast.makeText(MainActivity.getAppContext(), R.string.connect_error, Toast.LENGTH_LONG).show();
+            return;
+        }
+        if (errorInReading) {
+            Toast.makeText(MainActivity.getAppContext(), R.string.read_error, Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        if (otherError) {
+            Toast.makeText(MainActivity.getAppContext(), R.string.unknownError, Toast.LENGTH_LONG).show();
+        }
     }
 
 
