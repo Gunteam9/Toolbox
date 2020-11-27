@@ -105,10 +105,9 @@ public class Flashlight extends AppCompatActivity implements SeekBar.OnSeekBarCh
             Toast.makeText(this, R.string.flashlight_permission_denied, Toast.LENGTH_LONG).show();
     }
 
-    /**
-     * Back to home menu
-     */
-    public void back(View view) {
+
+    @Override
+    public void onBackPressed() {
         if (timer != null)
             timer.cancel();
 
