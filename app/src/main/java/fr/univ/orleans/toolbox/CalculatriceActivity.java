@@ -124,10 +124,13 @@ public class CalculatriceActivity extends AppCompatActivity {
     private void deleteDatabase()
     {
         SQLiteDatabase historique = db.getWritableDatabase();
-        if(number.length() == 0)
-            historique.delete(DbOpenHelper.TABLE_OPERATIONS,null, null);
+        if(number.length() <= 1)
+        {
+            historique.delete(DbOpenHelper.TABLE_OPERATIONS,DbOpenHelper.COLUMN_OPERATION, null);
+            affHistorique.setText("");
+        }
+
         db.close();
-        affHistorique.setText("");
     }
 
     /**
