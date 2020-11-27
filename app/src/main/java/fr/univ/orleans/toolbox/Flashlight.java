@@ -1,5 +1,7 @@
 package fr.univ.orleans.toolbox;
 
+import androidx.activity.OnBackPressedCallback;
+import androidx.activity.OnBackPressedDispatcherOwner;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -7,38 +9,46 @@ import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.hardware.Camera;
 import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraManager;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.Parcel;
+import android.os.Parcelable;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.Serializable;
+
 public class Flashlight extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener {
 
+    public static final int REQUEST_CODE_INTENT = 50;
     private TextView blinkingSpeedLabel;
     private ImageButton imageButton;
 
     private final int CAMERA_REQUEST_CODE = 1;
 
-    private int blinkingSpeed = 0;
+    private int blinkingSpeed = 1;
     private boolean hasPermission;
     private boolean hasFlashlight;
     private boolean isFlashlightOn;
 
     private CountDownTimer timer;
+    private SeekBar seekbar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flashlight);
 
-        SeekBar seekbar = findViewById(R.id.blinkingSpeed);
+        seekbar = findViewById(R.id.blinkingSpeed);
         seekbar.setOnSeekBarChangeListener(this);
         blinkingSpeedLabel = findViewById(R.id.blinkingSpeedLabel);
         imageButton = findViewById(R.id.imageButton);
@@ -69,7 +79,7 @@ public class Flashlight extends AppCompatActivity implements SeekBar.OnSeekBarCh
     private void controlFlashlight(String source) {
         if (hasPermission) {
             if (hasFlashlight) {
-                if (timer == null && blinkingSpeed != 0 && !isFlashlightOn) {
+                if (timer == null && blinkingSpeed != 1 && !isFlashlightOn) {
                     createTimer();
                     return;
                 }
@@ -99,7 +109,27 @@ public class Flashlight extends AppCompatActivity implements SeekBar.OnSeekBarCh
      * Back to home menu
      */
     public void back(View view) {
+        if (timer != null)
+            timer.cancel();
+
+        try {
+            turnFlashlightOff();
+        } catch (CameraAccessException e) {
+            e.printStackTrace();
+        }
+
+        Intent i = getIntent();
+        i.putExtra("blinkingSpeed", blinkingSpeed);
+        setResult(REQUEST_CODE_INTENT, i);
         finish();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        blinkingSpeed = getIntent().getIntExtra("blinkingSpeed", 1);
+        seekbar.setProgress(blinkingSpeed);
     }
 
     /**
@@ -143,17 +173,6 @@ public class Flashlight extends AppCompatActivity implements SeekBar.OnSeekBarCh
         cameraManager.setTorchMode(cameraManager.getCameraIdList()[0], false);
         imageButton.setImageResource(R.mipmap.flashlight_off_foreground);
         isFlashlightOn = false;
-    }
-
-    /**
-     *
-     * @return Return the status of the flashlight
-     */
-    @Deprecated
-    private boolean getFlashlightStatus() {
-
-        //Deprecated method but i didn't find the new method
-        return Camera.open().getParameters().getFlashMode().equals(Camera.Parameters.FLASH_MODE_TORCH);
     }
 
     /**
